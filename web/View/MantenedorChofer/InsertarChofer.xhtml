@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">
+        <f:view>
+            <h:form>
+                <h1><label> INGRESAR CHOFER </label> </h1>
+                <center>
+                    <table class="order-table">
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Rut Chofer"/></td>
+                            <td class="dato"><h:inputText converter="#{String}" required="true" value="#{choferController.rut_cho}" id="textfieldRUT_CHO">
+                                    <f:validateLength minimum="9" maximum="10"/> 
+                                </h:inputText>
+                                <h:message for="textfieldRUT_CHO" style="color:red"/>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Nombre Chofer"/></td>
+                            <td class="dato"><h:inputText converter="#{String}" required="true" value="#{choferController.nombre_cho}" id="textfieldNOM_CHO">
+                                    <f:validateLength minimum="1" /> 
+                                </h:inputText>
+                                <h:message for="textfieldNOM_CHO" style="color:red"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                            <td class="dato"><h:inputText converter="#{String}" required="true" value="#{choferController.apaterno_cho}" id="textfieldAPaterno" >
+                                    <f:validateLength minimum="1" /> 
+                                </h:inputText>
+                                <h:message for="textfieldAPaterno" style="color:red"/>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="cabecera"><h:outputLabel value="Apellido Materno"/></td>
+                            <td class="dato"><h:inputText converter="#{String}" required="true" value="#{choferController.amaterno_cho}" id="textfieldAMaterno">
+                                    <f:validateLength minimum="1" /> 
+                                </h:inputText>
+                                <h:message for="textfieldAMaterno" style="color:red"/>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Fecha de Nacimiento"/></td>
+                            <td class="dato">
+                                <h:inputText required="true" value="#{choferController.fnac_cho}" id="choFNac" >
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:inputText>
+                                <h:message for="choFNac" style="color:red"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Años de Experiencia"/></td>
+                            <td class="dato"><h:inputText converter="#{Integer}" required="true" value="#{choferController.experiencia_cho}" id="textfieldANIO_E">
+                                    <f:validateLongRange minimum="0"/> 
+                                </h:inputText>
+                                <h:message for="textfieldANIO_E" style="color:red"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Tipo de Licencia"/></td>
+                            <td class="dato"><h:inputText converter="#{String}" required="true" id="textfieldTIPO_L" value="#{choferController.tipo_licencia_cho}">
+                                    <f:validateLength minimum="1" /> 
+                                </h:inputText>
+                                <h:message for="textfieldTIPO_L" style="color:red"/>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Fecha Expiracion Licencia"/></td>
+                            <td class="dato"><h:inputText required="true" value="#{choferController.expir_licencia_cho}" id="textfieldF_EXP_L">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:inputText>
+                                <h:message for="textfieldF_EXP_L" style="color:red"/>
+
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+                <br/>
+                <center>
+                    <h:commandButton action="#{choferController.saveChofer()}" value="Guardar" id="Guardar"/>
+                </center>
+                <br/>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contentInterface">
+        <f:view>
+            <h:form >
+                
+                    <center>
+                        <h1><label> INGRESAR USUARIO </label> </h1>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h1><label> Rut Usuario</label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText  value="#{usuarioController.rutUsu}" id="textfieldRUT_USU"  >
+                                        <!--  <f:validateRegex pattern="/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}|[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/i"></f:validateRegex> -->
+
+                                    </h:inputText>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label> Password</label></h1></td>
+                                <td class="dato">   
+                                    <label for="textfield"></label>
+                                    <h:inputText  id="textfieldCAPACIDAD" value="#{usuarioController.passwordUsu}" >
+                                    </h:inputText>
+                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label> Nombre </label></h1> </td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText  value="#{usuarioController.nombreUsu}" id="textfieldESTADO" required="true">
+                                      
+
+                                    </h:inputText>
+                                    <h:message for="textfieldESTADO" style="color:red" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label> Apellido Paterno </label> </h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText value="#{usuarioController.apaternoUsu}"  required="true" id="textfieldANIOA">
+                              
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOA" style="color:red"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label> Apellido Materno </label> </h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText  value="#{usuarioController.amaternoUsu}" id="textfieldCOSTO">
+                      
+                                        <h:message for="textfieldCAPACIDAD" style="color:red" />
+                                    </h:inputText>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label> E-Mail </label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText value="#{usuarioController.emailUsu}" id="textfieldANIOE" >
+                                
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                </td>
+                            </tr>
+                            
+                             <tr>
+                                <td class="cabecera"><h1><label> Rol </label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText value="#{usuarioController.rolUsu}" id="textfieldANIOE" >
+                                
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                </td>
+                            </tr>
+                            
+                             <tr>
+                                <td class="cabecera"><h1><label> Estado </label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <h:inputText value="#{usuarioController.estadoUsu}" id="textfieldANIOE" >
+                                
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <h:commandButton action="#{usuarioController.saveUsuario()}" value="Guardar" id="Guardar"/>
+                    </center>
+               
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

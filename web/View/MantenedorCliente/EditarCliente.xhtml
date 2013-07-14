@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">            
+        <f:view>
+            <h:form>
+                <h3><h:outputText> ACTUALIZAR CLIENTE</h:outputText>> </h3>
+                <center>
+                    <table class="order-table">
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
+                            <td class="dato"><h:outputText value="#{cliente.cod_cli}"/>
+                                <h:inputHidden value="#{cliente.cod_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Nombre"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.nombre_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.apaterno_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Telefono"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.telefono_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="E-mail"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.mail_cli}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Dirección"/></td>
+                            <td class="dato"><h:inputText value="#{cliente.direccion_cli}"/></td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Comuna"/></td>
+                            <td class="dato"><h:selectOneMenu id="textfieldCAPACIDAD" value="#{cliente.cod_com}">
+                                    <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                   itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                </h:selectOneMenu></td>
+                        </tr>
+
+
+                    </table>
+                    <h:commandButton action="#{cliente.updateCliente()}" value="Guardar Cambios" id="Guardar"/>
+                </center>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

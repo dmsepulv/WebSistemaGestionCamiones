@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">            
+        <f:view>
+            <h:form>
+                <h3><label> ACTUALIZAR CHOFER </label> </h3>
+                <center>
+                    <table class="order-table">
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Rut Chofer"/></td>
+                            <td class="dato"><h:outputText value="#{choferController.rut_cho}"/>
+                                <h:inputHidden value="#{choferController.rut_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Nombre Chofer"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.nombre_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.apaterno_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.amaterno_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Fecha de Nacimiento"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.fnac_cho}">
+                                    <f:convertDateTime type="date" dateStyle="short" />
+                                </h:inputText></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Años de Experiencia"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.experiencia_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Tipo de Licencia"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.tipo_licencia_cho}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Fecha Expiracion Licencia"/></td>
+                            <td class="dato"><h:inputText value="#{choferController.expir_licencia_cho}">
+                                     <f:convertDateTime type="date" dateStyle="short" />
+                                </h:inputText>
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+                    <h:commandButton action="#{choferController.updateChofer()}" value="Guardar Cambios" id="Guardar"/>
+                    <br/>
+                </center>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

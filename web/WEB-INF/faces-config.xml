@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.1"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+    
+    
+    <application>
+        <locale-config>
+            <default-locale>es</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>Util.messages</base-name>
+            <var>msgs</var>
+        </resource-bundle>
+    </application>
+   
+    <navigation-rule>
+        <from-view-id>View/*</from-view-id>
+        <navigation-case>
+            <from-outcome>validate</from-outcome>
+            <to-view-id>/View/Home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>View/*</from-view-id>
+        <navigation-case>
+            <from-outcome>Administrar</from-outcome>
+            <to-view-id>/View/Administracion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>MostrarCamiones</from-outcome>
+            <to-view-id>/View/MantenedorCamion/MostrarCamiones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>IngresoCamion</from-outcome>
+            <to-view-id>/View/MantenedorCamion/InsertarCamion.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>MostrarChoferes</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarChoferes.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>IngresarChofer</from-outcome>
+            <to-view-id>/View/MantenedorChofer/InsertarChofer.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>MostrarClientes</from-outcome>
+            <to-view-id>/View/MantenedorCliente/MostrarCliente.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>IngresarCliente</from-outcome>
+            <to-view-id>/View/MantenedorCliente/InsertarCliente.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>MostrarUsuario</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/MostrarUsuario.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>IngresarUsuario</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/InsertarUsuario.xhtml</to-view-id>
+        </navigation-case> 
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/View/MantenedorCamion/*</from-view-id>
+        <navigation-case>
+            <from-outcome>encontrado</from-outcome>
+            <to-view-id>/View/MantenedorCamion/SeleccionCamion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eliminado</from-outcome>
+            <to-view-id>/View/MantenedorCamion/MostrarCamiones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guardado</from-outcome>
+            <to-view-id>/View/MantenedorCamion/MostrarCamiones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizado</from-outcome>
+            <to-view-id>/View/MantenedorCamion/MostrarCamiones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/View/MantenedorChofer/*</from-view-id>
+        <navigation-case>
+            <from-outcome>encontrado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/SeleccionChofer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eliminado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarChoferes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guardado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarChoferes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarChoferes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/View/MantenedorCliente/*</from-view-id>
+        <navigation-case>
+            <from-outcome>encontrado</from-outcome>
+            <to-view-id>/View/MantenedorCliente/SeleccionCliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eliminado</from-outcome>
+            <to-view-id>/View/MantenedorCliente/MostrarClientes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guardado</from-outcome>
+            <to-view-id>/View/MantenedorCliente/MostrarClientes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizado</from-outcome>
+            <to-view-id>/View/MantenedorCliente/MostrarClientes.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/View/MantenedorPedido/*</from-view-id>
+        <navigation-case>
+            <from-outcome>encontrado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/SeleccionPedido.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eliminado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarPedidos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guardado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarPedidos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizado</from-outcome>
+            <to-view-id>/View/MantenedorChofer/MostrarPedidos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/View/MantenedorUsuario/*</from-view-id>
+        <navigation-case>
+            <from-outcome>encontrado</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/SeleccionUsuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eliminado</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/MostrarUsuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>guardado</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/MostrarUsuario.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizado</from-outcome>
+            <to-view-id>/View/MantenedorUsuario/MostrarUsuario.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+</faces-config>

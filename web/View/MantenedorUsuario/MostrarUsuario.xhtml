@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contentInterface"> 
+        <f:view>
+            <h:form>  
+                <p:panel>
+                    <center>
+                        <h:dataTable value="#{usuarioController.obtenerUsuarios()}" 
+                                     var="c"
+                                     styleClass="order-table-hor"
+                                     headerClass="order-table-header-hor"
+                                     rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
+
+                            <h:column>
+                                <f:facet name="header">Rut Usuario</f:facet>
+                                <h:commandLink action="#{usuarioController.seleccionarUsuario(c)}" value="#{c.rutUsu}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Nombre</f:facet>
+                                    #{c.nombreUsu}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Apellido Paterno</f:facet>
+                                    #{c.apaternoUsu}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Apellido Materno</f:facet>
+                                    #{c.amaternoUsu}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Rol</f:facet>
+                                    #{c.rolUsu}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Estado</f:facet>
+                                    #{c.estadoUsu}
+                            </h:column>
+                                                      
+                        </h:dataTable>
+                    </center>
+                </p:panel>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

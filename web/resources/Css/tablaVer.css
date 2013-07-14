@@ -1,0 +1,20 @@
+.order-table{   
+    width: content-box;
+    border-collapse: collapse;
+    border-style: solid;
+}
+
+.cabecera{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #BBBBBB;
+    padding:10px;
+}
+
+.dato{
+    width: 300px;
+    text-align:center;
+    background:none repeat scroll 0 0 #FFF;
+    border-top:1px solid #BBBBBB;
+    padding:10px;
+}

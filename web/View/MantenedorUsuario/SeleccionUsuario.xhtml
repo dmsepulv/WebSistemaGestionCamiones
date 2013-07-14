@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">
+        <f:view>
+            <h:form>
+                <h3><label> INGRESAR USUARIO </label> </h3>
+                <center>
+                    <table class="order-table">
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Rut Usuario"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.rutUsu}"/>
+                                <h:inputHidden value="#{usuarioController.rutUsu}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Password"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.passwordUsu}"/>
+                                <h:inputHidden value="#{usuarioController.passwordUsu}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Nombre"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.nombreUsu}"/>
+                                <h:inputHidden value="#{usuarioController.nombreUsu}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.apaternoUsu}"/>
+                                <h:inputHidden value="#{usuarioController.apaternoUsu}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.amaternoUsu}"/>
+                                <h:inputHidden value="#{usuarioController.amaternoUsu}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="E-Mail"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.emailUsu}"/>
+                                <h:inputHidden value="#{usuarioController.emailUsu}"/></td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Rol"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.rolUsu}"/>
+                                <h:inputHidden value="#{usuarioController.rolUsu}"/></td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Estado"/></td>
+                            <td class="dato"><h:outputText value="#{usuarioController.estadoUsu}"/>
+                                <h:inputHidden value="#{usuarioController.estadoUsu}"/></td>
+                        </tr>
+                        
+                    </table>
+                </center>
+                <br/>
+                <center>
+                    <h:commandButton action="EditarUsuario" value="Editar"/>
+                    <h:outputText style="width:20px;"/>
+                    <h:commandButton action="EliminarUsuario" value="Eliminar"/>
+                </center>
+                <br/>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>
+

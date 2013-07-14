@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Indice</title>
+        <link type="text/css" href="./../../resources/Css/Home.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="centerPane">
+            <div class="header">
+                <h:graphicImage value="/resources/mhgvj.jpg"  id="logo" />
+            </div>
+            <div class="menuPrincipal">
+                <ui:include src="Utils/MainMenu.xhtml" />
+            </div>
+            <div class="contentHome">
+                <ui:insert name="content"  id="subVistaContent"/>
+            </div>
+            <div class="footer">
+                <p>Copyright 2013© Grupo4 .All rights reserved</p>
+            </div>
+        </div>
+    </body>
+</html>

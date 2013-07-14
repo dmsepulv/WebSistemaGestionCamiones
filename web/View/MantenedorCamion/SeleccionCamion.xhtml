@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">
+        <f:view>
+            <h:form>
+                <h3><label> INGRESAR CAMION </label> </h3>
+                <center>
+                    <table class="order-table">
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Patente"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.patente_cam}"/>
+                                <h:inputHidden value="#{camionController.patente_cam}"/></td>
+
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Capacidad"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.capacidad_cam}"/>
+                                <h:inputHidden value="#{camionController.capacidad_cam}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Estado"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.estado_cam}"/>
+                                <h:inputHidden value="#{camionController.estado_cam}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Año adquisicion"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.anio_adq_cam}"/>
+                                <h:inputHidden value="#{camionController.anio_adq_cam}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Costo adquisicion"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.costo_adq_cam}"/>
+                                <h:inputHidden value="#{camionController.costo_adq_cam}"/></td>
+                        </tr>
+                        <tr>
+                            <td class="cabecera"><h:outputText value="Año Elaboracion"/></td>
+                            <td class="dato"><h:outputText value="#{camionController.anio_elab_cam}"/>
+                                <h:inputHidden value="#{camionController.anio_elab_cam}"/></td>
+                        </tr>
+                    </table>
+                </center>
+                <br/>
+                <center>
+                    <h:commandButton action="EditarCamion" value="Editar"/>
+                    <h:outputText style="width:20px;"/>
+                    <h:commandButton action="EliminarCamion" value="Eliminar"/>
+                </center>
+                <br/>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>
+

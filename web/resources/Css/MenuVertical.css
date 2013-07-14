@@ -1,0 +1,133 @@
+
+ul,ul ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+#wrapper {
+    width: 220px;
+    alignment-baseline: central;
+    font-size: 0.8125em;
+}
+
+/*main menu*/
+
+.menu {
+    width: auto;
+    -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+}
+
+.menu > li > a {
+    background-color: #616975;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(114, 122, 134)),to(rgb(80, 88, 100)));
+    background-image: -webkit-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+    background-image: -moz-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+    background-image: -o-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+    background-image: -ms-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+    background-image: linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
+    border-bottom: 1px solid #33373d;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #878e98;
+    -moz-box-shadow: inset 0px 1px 0px 0px #878e98;
+    box-shadow: inset 0px 1px 0px 0px #878e98;
+    width: 100%;
+    height: 2.75em;
+    line-height: 2.75em;
+    text-indent: 2.75em;
+    display: block;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(0,0,0,.5);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/*Submenu*/
+
+.menu ul li a {
+    background: #fff;
+    border-bottom: 1px solid #efeff0;
+    width: 100%;
+    height: 2.75em;
+    line-height: 2.75em;
+    text-indent: 2.75em;
+    display: block;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.923em;
+    font-weight: 400;
+    color: #878d95;
+    text-decoration: none;
+}
+.menu ul li:last-child a {
+    border-bottom: 1px solid #33373d;
+}
+
+
+
+/*Hover and Active Styling*/
+
+
+.menu > li > a:hover,
+.menu > li > a.active {
+    background-color: #35afe3;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(69, 199, 235)),to(rgb(38, 152, 219)));
+    background-image: -webkit-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+    background-image: -moz-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+    background-image: -o-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+    background-image: -ms-linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+    background-image: linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#45c7eb', EndColorStr='#2698db');
+    border-bottom: 1px solid #103c56;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+    -moz-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+    box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+    font-weight: bold;
+}
+.menu > li > a.active {
+    border-bottom: 1px solid #1a638f;
+    font-weight: bold;
+}
+
+
+
+
+/*Main menu numbers and arrows*/
+
+.menu ul > li > a span {
+    font-size: 0.857em;
+    display: inline-block;
+    position: absolute;
+    right: 1em;
+    top: 50%; 
+    background: #fff;
+    border: 1px solid #d0d0d3;
+    line-height: 1em;
+    height: 1em;
+    padding: .4em .7em;
+    margin: -.9em 0 0 0;
+    color: #878d95;
+    text-indent: 0;
+    text-align: center;
+    -webkit-border-radius: .769em;
+    -moz-border-radius: 769em;
+    border-radius: 769em;
+    text-shadow: 0px 0px 0px rgba(255,255,255,.01);
+}
+.menu > li > ul li a:before {
+    font-size: 8px;
+    color: #bcbcbf;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: 0;
+    left: -2.7em;
+}
+.menu > li > ul li:hover a,
+.menu > li > ul li:hover a span,
+.menu > li > ul li:hover a:before {
+    color: #32373D;
+}

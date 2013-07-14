@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contentInterface">     
+        <f:view>
+            <h:form>
+                <p:panel>
+                <center>
+                    <h3>
+                        <label> Esta Seguro que desea borrar el usuario con Rut : </label>
+                    </h3>
+                    <br/>
+                    <h:outputText style="font-size: xx-large" value="#{usuarioController.rutUsu}"/>
+                    <h:inputHidden value="#{usuarioController.rutUsu}"/>
+                <br/>
+                <br/>
+                    <h:commandButton action="#{usuarioController.deleteUsuario()}" value="Eliminar" id="Guardar"/>
+                </center>
+                </p:panel>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

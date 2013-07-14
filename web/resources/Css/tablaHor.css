@@ -1,0 +1,25 @@
+.order-table-hor{  
+    border-collapse:collapse;
+    border-style: solid;
+}
+
+.order-table-header-hor{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #BBBBBB;
+    padding-left:16px;
+}
+
+.order-table-odd-row-hor{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;
+    border-top:1px solid #BBBBBB;
+    padding-left:16px;
+}
+
+.order-table-even-row-hor{
+    text-align:center;
+    background:none repeat scroll 0 0 #F9F9F9;
+    border-top:1px solid #BBBBBB;
+    padding-left:16px;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="contentInterface">     
+        <f:view>
+            <h:form>
+                <center>
+                    <h3><label> Esta Seguro que desea borrar el chofer con rut : </label></h3>
+                    <br/>
+                    <h:outputText style="font-size: xx-large" value="#{choferController.rut_cho}"/>
+                    <h:inputHidden value="#{choferController.rut_cho}"/>
+                    <br/>
+                    <br/>
+                    <h:commandButton action="#{choferController.deleteChofer()}" value="Eliminar" id="Guardar"/>
+                    <br/>
+                </center>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

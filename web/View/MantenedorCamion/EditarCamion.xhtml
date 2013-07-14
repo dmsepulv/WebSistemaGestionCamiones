@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contentInterface">            
+        <f:view>
+            <h:form>
+                <p:panel>
+                    <h3><label> ACTUALIZAR CAMION </label> </h3>
+                    <center>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Patente"/></td>
+                                <td class="dato"><h:outputText value="#{camionController.patente_cam}"/>
+                                    <h:inputHidden value="#{camionController.patente_cam}"/></td>
+                            </tr>
+                           
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Capacidad"/></td>
+                                <td class="dato"><h:inputText id="textfieldCAPACIDAD"  value="#{camionController.capacidad_cam}" >
+                                    
+                                    </h:inputText>
+                                  
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Estado"/></td>
+                                <td class="dato"> 
+                                    <h:selectOneMenu value="#{camionController.estado_cam}">
+                                        <f:selectItems value="#{listaDropController.cargaListaEstados()}" var="ca"
+                                                       itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Año adquisicion"/></td>
+                                <td class="dato"><h:inputText  id="textfieldANIOA"  value="#{camionController.anio_adq_cam}">
+                              
+                                    </h:inputText>
+                                 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Costo adquisicion"/></td>
+                                <td class="dato"><h:inputText  id="textfieldCOSTO"  value="#{camionController.costo_adq_cam}">
+                                 
+                                    </h:inputText>
+                                   
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Año Elaboracion"/></td>
+                                <td class="dato"><h:inputText  id="textfieldANIOE"  value="#{camionController.anio_elab_cam}">
+                          
+                                    </h:inputText>
+                              
+                                </td>
+                            </tr>
+
+                        </table>
+                        <h:commandButton action="#{camionController.updateCamion()}" value="Guardar Cambios" id="Guardar"/>
+                    </center>
+                </p:panel>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

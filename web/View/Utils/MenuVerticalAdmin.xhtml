@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Menu Vertical</title>
+        <link type="text/css" href="../../resources/Css/MenuVertical.css" rel="stylesheet" />
+        <script type="text/javascript" src="./../../resources/js/jquery.js"/>
+    </h:head>
+    <h:body>
+        <div id="wrapper">
+            <ul class="menu">
+                <li><a href="#">Camiones</a>
+                    <ul>
+                        <li><h:link outcome="MostrarCamiones">Listar Camiones</h:link></li>
+                        <li><h:link outcome="IngresoCamion">Ingresar Camion</h:link></li>
+                    </ul>
+                </li>
+                <li><a href="#">Choferes</a>
+                    <ul>
+                        <li><h:link outcome="MostrarChoferes">Listar Choferes</h:link></li>
+                        <li><h:link outcome="IngresarChofer">Ingresar Chofer</h:link></li>
+                    </ul>
+                </li>
+                <li><a href="#">Clientes</a>
+                    <ul>
+                        <li><h:link outcome="MostrarClientes">Listar Clientes</h:link></li>
+                        <li><h:link outcome="IngresarCliente">Ingresar Cliente</h:link></li>
+                    </ul>
+                </li>
+                <li><a href="#">Pedidos</a>
+                    <ul>
+                        <li><h:link outcome="MostrarPedido">Listar Clientes</h:link></li>
+                        <li><h:link outcome="IngresarPedido">Ingresar Pedido</h:link></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Usuarios</a>
+                    <ul>
+                        <li><h:link outcome="MostrarUsuario">Listar Usuarios</h:link></li>
+                        <li><h:link outcome="InsertarUsuario">Ingresar Usuario</h:link></li>
+                    </ul>
+                </li>
+
+
+
+
+
+            </ul>
+        </div>
+        <!--initiate accordion-->
+        <script type="text/javascript">
+            $(function() {
+
+                var menu_ul = $('.menu > li > ul'),
+                        menu_a = $('.menu > li > a');
+
+                menu_ul.hide();
+
+                menu_a.click(function(e) {
+                    e.preventDefault();
+                    if (!$(this).hasClass('active')) {
+                        menu_a.removeClass('active');
+                        menu_ul.filter(':visible').slideUp('normal');
+                        $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                    } else {
+                        $(this).removeClass('active');
+                        $(this).next().stop(true, true).slideUp('normal');
+                    }
+                });
+            });
+        </script>
+    </h:body>
+</html>

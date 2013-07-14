@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Home.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="content">
+        <f:view>
+            <h:form>
+                <h1><label> INGRESAR PEDIDO </label> </h1>
+                <h1><label> Codigo Pedido </label></h1>
+                <p>
+                    <label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.cod_ped}" id="textfieldCOD_PED">
+                        
+                    </h:inputText>
+                </p>
+
+                <h1><label> Codigo Cliente</label> </h1>
+                <p> 
+                    <label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.cod_cli}" id="textfieldCOD_CLI" required="true">
+                        <f:validateLength minimum="0" maximum="6"/>
+                    </h:inputText>
+                </p>
+
+                <h1><label> Rut Usuario </label> </h1>
+                <p> 
+                    <label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.rut_usu}" id="textfieldRUT_USU"/>
+                </p>
+
+                <h1><label> Tipo Pedido </label> </h1>
+                <p> 
+                    <label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.tipo_ped}" id="textfieldTIPO_P"/>
+                </p>
+
+                <h1><label> Cantidad Pedido </label> </h1>
+                <p> 
+                    <label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.cantidad_ped}" id="textfieldCANT_P">
+                        <f:validateDoubleRange minimum="0" />
+                    </h:inputText>
+                                       
+                </p>
+
+                <h1><label> Observacion </label></h1>
+                <p><label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.observacion_ped}" id="textfieldOBSER"/>
+                </p>
+                
+                 <h1><label> Prioridad </label></h1>
+                <p><label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.prioridad_ped}" id="textfieldPRIOR"/>
+                </p>
+                  <h1><label> Fecha Entrega Pedido </label></h1>
+                <p><label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.fecha_entrega_ped}" id="textfieldF_ENTR"/>
+                </p>
+                
+                
+                <h1><label> Fecha Solicitud Pedido </label></h1>
+                <p><label for="textfield"></label>
+                    <h:inputText value="#{pedidoController.fecha_solicitud_ped}" id="textfieldF_SOLI"/>
+                </p>
+                
+                
+                <center>
+                    <h:commandButton action="#{camionController.saveCamion()}" value="Guardar" id="Guardar"/>
+                </center>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

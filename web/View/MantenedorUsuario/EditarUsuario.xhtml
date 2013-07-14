@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition template="./../Administracion.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="contentInterface">            
+        <f:view>
+            <h:form>
+                <p:panel>
+                    <h3><label> ACTUALIZAR USUARIO</label> </h3>
+                    <center>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Rut Usuario"/></td>
+                                <td class="dato"><h:outputText value="#{usuarioController.rutUsu}"/>
+                                    <h:inputHidden value="#{usuarioController.rutUsu}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Password"/></td>
+                                <td class="dato"><h:inputText id="textfieldCAPACIDAD"  value="#{usuarioController.passwordUsu}" >
+
+                                    </h:inputText>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Nombre"/></td>
+                                <td class="dato"><h:inputText id="textfieldNOMBRE"  value="#{usuarioController.nombreUsu}">
+                                    </h:inputText>
+                                    <h:message for="textfieldESTADO" style="color:red" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                                <td class="dato"><h:inputText  id="textfieldANIOA"  value="#{usuarioController.apaternoUsu}">
+
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOA" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                                <td class="dato"><h:inputText id="textfieldCOSTO"  value="#{usuarioController.amaternoUsu}">
+
+                                    </h:inputText>
+                                    <h:message for="textfieldCOSTO" style="color:red" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="E-Mail"/></td>
+                                <td class="dato"><h:inputText  id="textfieldANIOE" required="true" value="#{usuarioController.emailUsu}">
+                                        <f:validateLongRange minimum="1980"/>
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Rol"/></td>
+                                <td class="dato"><h:inputText  id="textfieldANIOE" required="true" value="#{usuarioController.rolUsu}">
+
+                                    </h:inputText>
+                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Estado"/></td>
+                                <td class="dato">   <h:selectOneMenu value="#{usuarioController.estadoUsu}">
+                                        <f:selectItems value="#{listaDropController.cargaListaEstadoUsuario}" var="ca"
+                                                       itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                    </h:selectOneMenu>
+
+
+
+                                </td>
+                            </tr>
+
+                        </table>
+                        <h:commandButton action="#{usuarioController.updateUsuario()}" value="Guardar Cambios" id="Guardar"/>
+                    </center>
+                </p:panel>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

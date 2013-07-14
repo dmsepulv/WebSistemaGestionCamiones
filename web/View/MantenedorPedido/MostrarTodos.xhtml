@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="./../Home.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="content"> 
+        <f:view>
+            <h:form>  
+                <center>
+                    <h:dataTable value="#{pedidoController.obtenerPedidos()}" 
+                                 var="c"
+                                 styleClass="order-table"
+                                 headerClass="order-table-header"
+                                 rowClasses="order-table-odd-row,order-table-even-row">
+
+                        <h:column>
+                            <f:facet name="header">Codigo Pedido</f:facet>
+                            <h:commandLink action="#{pedidoController.seleccionarPedido(c)}" value="#{c.cod_ped}"/>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Codigo Cliente</f:facet>
+                                #{c.cod_cli}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Rut Usuario</f:facet>
+                                #{c.rut_usu}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Tipo Pedido</f:facet>
+                                #{c.tipo_ped}
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Cantidad Pedido</f:facet>
+                                #{c.cantidad_ped}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Observacion</f:facet>
+                                #{c.observacion_ped}
+                        </h:column>
+                        
+                            <h:column>
+                            <f:facet name="header">Prioridad</f:facet>
+                                #{c.prioridad_ped}
+                        </h:column>
+                        
+                            <h:column>
+                            <f:facet name="header">Fecha Entrega Pedido</f:facet>
+                                #{c.fecha_entrega_ped}
+                        </h:column>
+                            <h:column>
+                            <f:facet name="header">Fecha Solicitud Pedido</f:facet>
+                                #{c.fecha_solicitud_ped}
+                        </h:column>
+                        
+                        
+                        
+                        
+                        
+                    </h:dataTable>
+                </center>
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>
