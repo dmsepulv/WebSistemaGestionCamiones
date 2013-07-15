@@ -2,45 +2,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Bienvenido</title>
         <h:outputStylesheet library="css" name="Login.css"/>
+        <h:outputStylesheet library="css" name="Textos.css"/>
+        <h:outputStylesheet library="css" name="Home.css"/>
         <h:outputScript library="js" name="java_valida.js"/>
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="Login.css"/>
         <f:view>
-            <h:form>
-                <div class="container">
-                    <div class="header">
-                        <h:graphicImage  value="/resources/images/mhgvj.jpg" class="logoLogin"/>
-                    </div>
-                    <div class="content">
-                        <h1>
-                            <label>Usuario</label>
-                            <br/>
-                        </h1>
-                        <p>
-                            <h:inputText value="#{login.rut}" onchange="checkRutField(this);"/>
-                        </p>
-                        <h1>
-                            <label> Password</label>
-                            <br/>
-                        </h1>
-                        <p>
-                            <h:inputSecret value="#{login.password}"/>
-                        </p>
-                        <p>
-                            <h:commandButton action="#{login.validateUser()}" value="Ingresar"/>
-                        </p>
-                    </div>
-                    <div class="footerLogin">
-                        <p>Copyright 2013© Grupo4 .All rights reserved.</p>
-                    </div>
+
+            <div class="container">
+                <div class="header">
+                    <h:graphicImage  value="/resources/images/mhgvj.jpg" class="logoLogin"/>
                 </div>
-            </h:form>
+                <div>
+                    <h:form id="formularioLogin">
+                        <p:panel styleClass="content">
+                            <center>
+                                <table>
+                                    <tr>
+                                        <td><h:outputLabel value="Usuario"/></td>
+                                        <td><h:inputText value="#{login.rut}" onchange="checkRutField(this);"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h:outputLabel value="Password"/></td>
+                                        <td><h:inputSecret value="#{login.password}"/></td>
+                                    </tr>
+                                </table>
+                                <h:commandButton action="#{login.validateUser()}" value="Ingresar"/>
+                            </center>
+                        </p:panel>
+                    </h:form>
+                </div>
+                <div class="footer">
+                    <h:outputText value="Copyright 2013© Grupo4 .All rights reserved"/>
+                </div>
+            </div>
+
         </f:view>
     </h:body>
 </html>

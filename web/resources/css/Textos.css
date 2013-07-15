@@ -1,15 +1,8 @@
-/* 
-    Document   : Textos
-    Created on : 28-05-2013, 06:03:54 PM
-    Author     : darwin
-    Description:
-        Purpose of the stylesheet follows.
-*/
 
 h1, h2, h3, h4, h5, h6, p{
-    margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+    margin-top: 0;	 
     padding-right: 15px;
-    padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+    padding-left: 15px; 
     text-align: center;
     font-weight: bold;
     color: #666;
@@ -36,7 +29,7 @@ a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usu
 .tittleContent{
     text-align:center;
     border-collapse:collapse;
-    border-bottom:3px solid #BBBBBB;
+    border-bottom:0.3% solid #BBBBBB;
     font-size: 18pt;
 }
 

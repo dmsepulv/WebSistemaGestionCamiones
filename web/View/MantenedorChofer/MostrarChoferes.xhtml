@@ -22,13 +22,8 @@
                             </h:column>
 
                             <h:column>
-                                <f:facet name="header">Nombre</f:facet>
-                                <h:outputText  value="#{chofer.nombreCho}"></h:outputText>
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Apellidos</f:facet>
-                                <h:outputText  value="#{chofer.amaternoCho}"></h:outputText> 
+                                <f:facet name="header">Nombre Completo</f:facet>
+                                <h:outputText  value="#{chofer.toString()}"></h:outputText>
                             </h:column>
 
                             <h:column>
@@ -40,22 +35,9 @@
 
                             <h:column>
                                 <f:facet name="header">Experiencia</f:facet>
-                                <h:outputText  value="#{chofer.experienciaCho}"></h:outputText>
+                                <h:outputText  value="#{chofer.experienciaCho} años"></h:outputText>
                             </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Tipo Licencia</f:facet>
-                                <h:outputText  value="#{chofer.tipoLicenciaCho}">
-                                </h:outputText>
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Experación Licencia</f:facet>
-                                
-                                <h:outputText  value="#{chofer.expirLicenciaCho}">
-                                    <f:convertDateTime type="date" dateStyle="short" />
-                                </h:outputText>
-                            </h:column>
+                            
                         </h:dataTable>
                     </center>
                 </p:panel>

@@ -33,12 +33,20 @@ public class ListaDropController {
         this.lista = coffee3List;
     }
     
-    public ArrayList<ElementoLista> cargaListaEstadosFiltro() {
+    public ArrayList<ElementoLista> cargaListaEstadosFiltroCamion() {
         lista.clear();
         lista.add(new ElementoLista("TODOS", 1));
         lista.add(new ElementoLista("ACTIVO", 2));
         lista.add(new ElementoLista("NO ACTIVO", 3));
         lista.add(new ElementoLista("MANTENCION", 4));
+        return lista;
+    }
+    
+    public ArrayList<ElementoLista> cargaListaEstadosFiltroUsuario() {
+        lista.clear();
+        lista.add(new ElementoLista("TODOS", 1));
+        lista.add(new ElementoLista("ACTIVO", 2));
+        lista.add(new ElementoLista("NO ACTIVO", 3));
         return lista;
     }
 
@@ -52,8 +60,17 @@ public class ListaDropController {
 
     public ArrayList<ElementoLista> cargaListaEstadoUsuario() {
         lista.clear();
-        lista.add(new ElementoLista("ACTIVO", 1));
-        lista.add(new ElementoLista("NO ACTIVO", 2));
+        lista.add(new ElementoLista("TODOS", 1));
+        lista.add(new ElementoLista("ACTIVO", 2));
+        lista.add(new ElementoLista("NO ACTIVO", 3));
+        return lista;
+    }
+    
+    public ArrayList<ElementoLista> cargaListaRolUsuario() {
+        lista.clear();
+        lista.add(new ElementoLista("ADMINISTRADOR", 1));
+        lista.add(new ElementoLista("SECRETARIA", 2));
+        lista.add(new ElementoLista("CHOFER", 3));
         return lista;
     }
 

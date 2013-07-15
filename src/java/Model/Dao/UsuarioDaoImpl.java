@@ -104,7 +104,7 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             stb.append("FROM   \"USUARIO\"  ");
             stb.append(" WHERE rut_usu = ?  ");
             stb.append(" ; ");
-         //   stb.append("       AND  estado_usu = 'ACTIVO' ; ");
+            //   stb.append("       AND  estado_usu = 'ACTIVO' ; ");
 
             PreparedStatement query = conn.prepareStatement(stb.toString());
             query.setString(1, rut);
@@ -142,43 +142,33 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
         }
 
         try {
-            conn.setAutoCommit(false);
-            boolean committed = false;
-            try {
-                StringBuilder stb = new StringBuilder();
-                stb.append("SELECT rut_usu , ");
-                stb.append("       password_usu , ");
-                stb.append("       nombre_usu , ");
-                stb.append("       apaterno_usu , ");
-                stb.append("       amaterno_usu , ");
-                stb.append("       email_usu,  ");
-                stb.append("       estado_usu,  ");
-                stb.append("       rol_usu  ");
-                stb.append("FROM   \"USUARIO\" ; ");
+            StringBuilder stb = new StringBuilder();
+            stb.append("SELECT rut_usu , ");
+            stb.append("       password_usu , ");
+            stb.append("       nombre_usu , ");
+            stb.append("       apaterno_usu , ");
+            stb.append("       amaterno_usu , ");
+            stb.append("       email_usu,  ");
+            stb.append("       estado_usu,  ");
+            stb.append("       rol_usu  ");
+            stb.append("FROM   \"USUARIO\" ; ");
 
-                PreparedStatement query = conn.prepareStatement(stb.toString());
-                ResultSet rs = query.executeQuery();
-                if (rs.next()) {
-                    usuarios = new LinkedList<Object>();
-                    do {
-                        ArrayList<Object> datosUsuario = new ArrayList<Object>();
-                        datosUsuario.add(rs.getString("rut_usu"));
-                        datosUsuario.add(rs.getString("password_usu"));
-                        datosUsuario.add(rs.getString("nombre_usu"));
-                        datosUsuario.add(rs.getString("apaterno_usu"));
-                        datosUsuario.add(rs.getString("amaterno_usu"));
-                        datosUsuario.add(rs.getString("email_usu"));
-                        datosUsuario.add(rs.getString("estado_usu"));
-                        datosUsuario.add(rs.getString("rol_usu"));
-                        usuarios.add(datosUsuario);
-                    } while (rs.next());
-                }
-                conn.commit();
-                committed = true;
-            } finally {
-                if (!committed) {
-                    conn.rollback();
-                }
+            PreparedStatement query = conn.prepareStatement(stb.toString());
+            ResultSet rs = query.executeQuery();
+            if (rs.next()) {
+                usuarios = new LinkedList<Object>();
+                do {
+                    ArrayList<Object> datosUsuario = new ArrayList<Object>();
+                    datosUsuario.add(rs.getString("rut_usu"));
+                    datosUsuario.add(rs.getString("password_usu"));
+                    datosUsuario.add(rs.getString("nombre_usu"));
+                    datosUsuario.add(rs.getString("apaterno_usu"));
+                    datosUsuario.add(rs.getString("amaterno_usu"));
+                    datosUsuario.add(rs.getString("email_usu"));
+                    datosUsuario.add(rs.getString("estado_usu"));
+                    datosUsuario.add(rs.getString("rol_usu"));
+                    usuarios.add(datosUsuario);
+                } while (rs.next());
             }
         } finally {
             conn.close();
@@ -293,8 +283,8 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             stb.append(" WHERE  rut_usu = ? ;  ");
             PreparedStatement query = conn.prepareStatement(stb.toString());
 
-            query.setString(5, "DESHABILITADO");
-            query.setString(7, rutUsu);
+            query.setString(1, "DESHABILITADO");
+            query.setString(2, rutUsu);
             query.executeUpdate();
             conn.commit();
             transaccionCorrecta = true;
@@ -302,5 +292,55 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             conn.close();
         }
         return transaccionCorrecta;
+    }
+
+    @Override
+    public Object selectUsuariosPorEstado(String estadoUsuario) throws SQLException, NamingException {
+        LinkedList<Object> usuarios = null;
+
+        DataSource sgc_connection = getSgc_connection();
+        if (sgc_connection == null) {
+            throw new SQLException("No data source");
+        }
+        Connection conn = sgc_connection.getConnection();
+        if (conn == null) {
+            throw new SQLException("No connection");
+        }
+
+        try {
+            StringBuilder stb = new StringBuilder();
+            stb.append("SELECT rut_usu , ");
+            stb.append("       password_usu , ");
+            stb.append("       nombre_usu , ");
+            stb.append("       apaterno_usu , ");
+            stb.append("       amaterno_usu , ");
+            stb.append("       email_usu,  ");
+            stb.append("       estado_usu,  ");
+            stb.append("       rol_usu  ");
+            stb.append("FROM   \"USUARIO\"  ");
+            stb.append("WHERE   estado_usu = ? ; ");
+
+            PreparedStatement query = conn.prepareStatement(stb.toString());
+            query.setString(1, estadoUsuario);
+            ResultSet rs = query.executeQuery();
+            if (rs.next()) {
+                usuarios = new LinkedList<Object>();
+                do {
+                    ArrayList<Object> datosUsuario = new ArrayList<Object>();
+                    datosUsuario.add(rs.getString("rut_usu"));
+                    datosUsuario.add(rs.getString("password_usu"));
+                    datosUsuario.add(rs.getString("nombre_usu"));
+                    datosUsuario.add(rs.getString("apaterno_usu"));
+                    datosUsuario.add(rs.getString("amaterno_usu"));
+                    datosUsuario.add(rs.getString("email_usu"));
+                    datosUsuario.add(rs.getString("estado_usu"));
+                    datosUsuario.add(rs.getString("rol_usu"));
+                    usuarios.add(datosUsuario);
+                } while (rs.next());
+            }
+        } finally {
+            conn.close();
+        }
+        return usuarios;
     }
 }

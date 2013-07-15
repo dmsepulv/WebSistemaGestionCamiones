@@ -155,4 +155,35 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         return usuarioDao.deleteUsuario(rutUsu);
     }
+
+    @Override
+    public LinkedList<Usuario> seleccionarUsuariosPorEstado(String estadoUsuario) {
+        Usuario user;
+        LinkedList<Usuario> userRetorno = null;
+        LinkedList<Object> usuarios;
+        try {
+            usuarios = (LinkedList<Object>) usuarioDao.selectUsuariosPorEstado(estadoUsuario);
+            if (usuarios != null) {
+                userRetorno = new LinkedList<Usuario>();
+                for (Object usuario : usuarios) {
+                    ArrayList<Object> datosUser = (ArrayList<Object>) usuario;
+                    user = new Usuario();
+                    user.setRutUsu((String) datosUser.get(0));
+                    user.setPasswordUsu((String) datosUser.get(1));
+                    user.setNombreUsu((String) datosUser.get(2));
+                    user.setApaternoUsu((String) datosUser.get(3));
+                    user.setAmaternoUsu((String) datosUser.get(4));
+                    user.setEmailUsu((String) datosUser.get(5));
+                    user.setEstadoUsu((String) datosUser.get(6));
+                    user.setRolUsu((String) datosUser.get(7));
+                    userRetorno.add(user);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CamionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NamingException ex) {
+            Logger.getLogger(CamionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return userRetorno;
+    }
 }

@@ -4,14 +4,12 @@
  */
 package Model.Entity;
 
-
 /**
  *
  * @author darwin
  */
-
 public class Usuario {
-    
+
     private String rutUsu;
     private String passwordUsu;
     private String nombreUsu;
@@ -94,7 +92,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Model.Entity.Usuario[ rutUsu=" + rutUsu + " ]";
+        return nombreUsu + " " + apaternoUsu + " " + amaternoUsu;
     }
-    
 }

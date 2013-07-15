@@ -31,7 +31,7 @@ public class UsuarioController {
     private String emailUsu;
     private String estadoUsu;
     private String rolUsu;
-     private @Inject
+    private @Inject
     UsuarioService usuarioService;
 
     public UsuarioController() {
@@ -152,18 +152,39 @@ public class UsuarioController {
     public String seleccionarUsuario(Usuario usuario) {
         Usuario c = usuarioService.seleccionarUsuario(usuario.getRutUsu());
         if (c != null) {
-            rutUsu=
-                    passwordUsu=c.getRutUsu();
-                    nombreUsu=c.getNombreUsu();
-                    apaternoUsu=c.getApaternoUsu();
-                    amaternoUsu=c.getAmaternoUsu();
-                    emailUsu=c.getEmailUsu();
-                    estadoUsu=c.getEstadoUsu();
-                    rolUsu=c.getRolUsu();
-         
+            rutUsu =
+                    passwordUsu = c.getRutUsu();
+            nombreUsu = c.getNombreUsu();
+            apaternoUsu = c.getApaternoUsu();
+            amaternoUsu = c.getAmaternoUsu();
+            emailUsu = c.getEmailUsu();
+            estadoUsu = c.getEstadoUsu();
+            rolUsu = c.getRolUsu();
+
             return "encontrado";
         } else {
             return "no_encontrado";
         }
+    }
+
+    public List<Usuario> obtenerUsuariosPorEstado() {
+        if (estadoUsu == null ) {
+            return usuarioService.seleccionarTodosLosUsuarios();
+        } else {
+            if (estadoUsu.charAt(0) == '1') {
+                return usuarioService.seleccionarTodosLosUsuarios();
+            } else {
+                if (estadoUsu.charAt(0) == '2') {
+                    return usuarioService.seleccionarUsuariosPorEstado("ACTIVO");
+                } else {
+                    return usuarioService.seleccionarUsuariosPorEstado("NO ACTIVO");
+                }
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return nombreUsu + " " + apaternoUsu + " " + amaternoUsu;
     }
 }

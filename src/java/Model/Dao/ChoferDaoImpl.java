@@ -138,6 +138,8 @@ public class ChoferDaoImpl extends Conexion implements ChoferDao {
         stb.append("        tipo_licencia_cho , ");
         stb.append("        expir_licencia_cho  ");
         stb.append(" FROM   \"CHOFER\"  ");
+        stb.append(" ORDER BY   apaterno_cho,  ");
+        stb.append("            expir_licencia_cho asc  ");
 
         PreparedStatement query = conn.prepareStatement(stb.toString());
         ResultSet rs = query.executeQuery();

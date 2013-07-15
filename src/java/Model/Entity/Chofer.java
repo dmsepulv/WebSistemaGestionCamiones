@@ -10,8 +10,8 @@ import java.util.Date;
  *
  * @author darwin
  */
-
 public class Chofer {
+
     private String rutCho;
     private String nombreCho;
     private String aparternoCho;
@@ -92,10 +92,8 @@ public class Chofer {
         this.expirLicenciaCho = expirLicenciaCho;
     }
 
-
     @Override
     public String toString() {
-        return "Model.Entity.Chofer[ rutCho=" + rutCho + " ]";
+        return aparternoCho + " " + amaternoCho + " " + nombreCho;
     }
-    
 }

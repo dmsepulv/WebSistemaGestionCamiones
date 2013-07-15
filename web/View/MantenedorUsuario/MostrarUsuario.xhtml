@@ -7,35 +7,38 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface"> 
         <f:view>
-            <h:form>  
+            <h:form >  
                 <p:panel>
                     <center>
-                        <h:dataTable value="#{usuarioController.obtenerUsuarios()}" 
+                        <h:outputLabel value="Camiones de la Flota " styleClass="tittleContent"/>
+                        <br/>
+                        <br/>
+                    </center>
+                    <div class="filtro">
+                        <h:outputLabel value="Filtro: "/>
+                        <h:selectOneMenu value="#{usuarioController.estadoUsu}">
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroUsuario()}" var="ca"
+                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                            <f:ajax render="dataTableUsuario"/>
+                        </h:selectOneMenu>
+                    </div>    
+                    <br/>
+                    <center>
+                        <h:dataTable value="#{usuarioController.obtenerUsuariosPorEstado()}" 
                                      var="c"
+                                     id="dataTableUsuario"
                                      styleClass="order-table-hor"
                                      headerClass="order-table-header-hor"
                                      rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
-
                             <h:column>
                                 <f:facet name="header">Rut Usuario</f:facet>
                                 <h:commandLink action="#{usuarioController.seleccionarUsuario(c)}" value="#{c.rutUsu}"/>
                             </h:column>
 
                             <h:column>
-                                <f:facet name="header">Nombre</f:facet>
-                                    #{c.nombreUsu}
+                                <f:facet name="header">Nombre Completo</f:facet>
+                                    #{c.toString()}
                             </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Apellido Paterno</f:facet>
-                                    #{c.apaternoUsu}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Apellido Materno</f:facet>
-                                    #{c.amaternoUsu}
-                            </h:column>
-
                             <h:column>
                                 <f:facet name="header">Rol</f:facet>
                                     #{c.rolUsu}

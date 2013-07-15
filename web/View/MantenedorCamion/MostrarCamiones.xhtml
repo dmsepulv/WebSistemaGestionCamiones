@@ -17,7 +17,7 @@
                     <div class="filtro">
                         <h:outputLabel value="Filtro: "/>
                         <h:selectOneMenu value="#{camionController.estado_cam}">
-                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltro()}" var="ca"
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
                                            itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                         </h:selectOneMenu>
                     </div>    

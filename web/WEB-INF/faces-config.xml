@@ -62,11 +62,19 @@
             <to-view-id>/View/MantenedorCliente/InsertarCliente.xhtml</to-view-id>
         </navigation-case> 
         <navigation-case>
+            <from-outcome>MostrarPedido</from-outcome>
+            <to-view-id>/View/MantenedorPedido/MostrarPedido.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
+            <from-outcome>IngresarPedido</from-outcome>
+            <to-view-id>/View/MantenedorPedido/InsertarPedido.xhtml</to-view-id>
+        </navigation-case> 
+        <navigation-case>
             <from-outcome>MostrarUsuario</from-outcome>
             <to-view-id>/View/MantenedorUsuario/MostrarUsuario.xhtml</to-view-id>
         </navigation-case> 
         <navigation-case>
-            <from-outcome>IngresarUsuario</from-outcome>
+            <from-outcome>InsertarUsuario</from-outcome>
             <to-view-id>/View/MantenedorUsuario/InsertarUsuario.xhtml</to-view-id>
         </navigation-case> 
     </navigation-rule>

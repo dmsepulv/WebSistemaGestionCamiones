@@ -20,7 +20,7 @@
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Password"/></td>
-                                <td class="dato"><h:inputText id="textfieldCAPACIDAD"  value="#{usuarioController.passwordUsu}" >
+                                <td class="dato"><h:inputText   value="#{usuarioController.passwordUsu}" >
 
                                     </h:inputText>
 
@@ -29,7 +29,7 @@
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="Nombre"/></td>
-                                <td class="dato"><h:inputText id="textfieldNOMBRE"  value="#{usuarioController.nombreUsu}">
+                                <td class="dato"><h:inputText  value="#{usuarioController.nombreUsu}">
                                     </h:inputText>
                                     <h:message for="textfieldESTADO" style="color:red" />
                                 </td>
@@ -37,7 +37,7 @@
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                                <td class="dato"><h:inputText  id="textfieldANIOA"  value="#{usuarioController.apaternoUsu}">
+                                <td class="dato"><h:inputText  value="#{usuarioController.apaternoUsu}">
 
                                     </h:inputText>
                                     <h:message for="textfieldANIOA" style="color:red"/>
@@ -46,7 +46,7 @@
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                                <td class="dato"><h:inputText id="textfieldCOSTO"  value="#{usuarioController.amaternoUsu}">
+                                <td class="dato"><h:inputText  value="#{usuarioController.amaternoUsu}">
 
                                     </h:inputText>
                                     <h:message for="textfieldCOSTO" style="color:red" />
@@ -55,7 +55,7 @@
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="E-Mail"/></td>
-                                <td class="dato"><h:inputText  id="textfieldANIOE" required="true" value="#{usuarioController.emailUsu}">
+                                <td class="dato"><h:inputText  required="true" value="#{usuarioController.emailUsu}">
                                         <f:validateLongRange minimum="1980"/>
                                     </h:inputText>
                                     <h:message for="textfieldANIOE" style="color:red"/>
@@ -64,22 +64,21 @@
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="Rol"/></td>
-                                <td class="dato"><h:inputText  id="textfieldANIOE" required="true" value="#{usuarioController.rolUsu}">
-
-                                    </h:inputText>
-                                    <h:message for="textfieldANIOE" style="color:red"/>
+                                <td class="dato">
+                                    <h:selectOneMenu value="#{usuarioController.rolUsu}" style="width: 97.5%;">
+                                        <f:selectItems value="#{listaDropController.cargaListaRolUsuario()}" var="ca"
+                                                       itemLabel="#{ca.label}" itemValue="#{ca.value}"/>
+                                    </h:selectOneMenu>
                                 </td>
                             </tr>
 
                             <tr>
                                 <td class="cabecera"><h:outputText value="Estado"/></td>
-                                <td class="dato">   <h:selectOneMenu value="#{usuarioController.estadoUsu}">
-                                        <f:selectItems value="#{listaDropController.cargaListaEstadoUsuario}" var="ca"
+                                <td class="dato">  
+                                     <h:selectOneMenu value="#{usuarioController.rolUsu}" style="width: 97.5%;">
+                                        <f:selectItems value="#{listaDropController.cargaListaEstadoUsuario()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                                     </h:selectOneMenu>
-
-
-
                                 </td>
                             </tr>
 

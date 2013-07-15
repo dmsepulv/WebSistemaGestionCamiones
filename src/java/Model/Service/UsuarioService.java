@@ -27,9 +27,11 @@ public interface UsuarioService {
             String estadoUsu,
             String rolUsu) throws SQLException, NamingException;
     
-    public Usuario seleccionarUsuario(String patente_cam);
+    public Usuario seleccionarUsuario(String rutUsuario);
     
     public LinkedList<Usuario> seleccionarTodosLosUsuarios();
+    
+    public LinkedList<Usuario> seleccionarUsuariosPorEstado(String estadoUsuario);
     
     public boolean actualizarUsuario(
             String rutUsu,

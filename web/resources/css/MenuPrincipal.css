@@ -5,30 +5,30 @@
 }
 
 #menu {
-	border: 1px solid #222;
+	border: 0.1% solid #222;
 	background-color: #111;
 	background-image: linear-gradient(#444, #111);
-	border-radius: 6px;
-	box-shadow: 0 1px 1px #777;
+	border-radius: 0.5em;
+	box-shadow: 0 0.0625em 0.0625em #777;
         list-style-type: none;
         zoom:1;
 }
 
 #menu li {
 	float: left;
-	border-right: 1px solid #222;
-	box-shadow: 1px 0 0 #444;
+	border-right: 0.0625em solid #222;
+	box-shadow: 0.0625em 0 0 #444;
 	position: relative;
 }
 
 #menu a {
 	float: left;
-	padding: 12px 30px;
+	padding: 1em 1.875em;
 	color: #999;
 	text-transform: uppercase;
-	font: bold 12px Arial, Helvetica;
+	font: bold 1em Arial, Helvetica;
 	text-decoration: none;
-	text-shadow: 0 1px 0 #000;
+	text-shadow: 0 0.0625em 0 #000;
 }
 
 #menu:hover > a{
@@ -52,27 +52,27 @@
 /* Sub-menu */
 
 #menu ul {
-	margin: 20px 0 0 0;
+	margin: 1.25% 0 0 0;
 	_margin: 0; /*IE6 only*/
 	opacity: 0;
 	visibility: hidden;
 	position: absolute;
-	top: 38px;
+	top: 2.375%;
 	left: 0;
 	z-index: 1;    
 	background: #444;	
 	background: linear-gradient(#444, #111);
-	box-shadow: 0 -1px 0 rgba(255,255,255,.3);	
-	border-radius: 3px;
+	box-shadow: 0 -0.0625em 0 rgba(255,255,255,.3);	
+	border-radius: 0.25em;
 	transition: all .2s ease-in-out;  
 }
 
 #menu ul ul {
 	top: 0;
-	left: 150px;
-	margin: 0 0 0 20px;
+	left: 9.375em;
+	margin: 0 0 0 1.25em;
 	_margin: 0; /*IE6 only*/
-	box-shadow: -1px 0 0 rgba(255,255,255,.3);		
+	box-shadow: -0.0625em 0 0 rgba(255,255,255,.3);		
 }
 
 #menu ul li{
@@ -80,9 +80,9 @@
     margin: 0;
     padding: 0;
     display: block;  
-    -moz-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
-    -webkit-box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
-    box-shadow: 0 1px 0 #111111, 0 2px 0 #777777;
+    -moz-box-shadow: 0 0.0625em 0 #111111, 0 0.125em 0 #777777;
+    -webkit-box-shadow: 0 0.0625em 0 #111111, 0 0.125em 0 #777777;
+    box-shadow: 0 0.0625em 0 #111111, 0 0.125em 0 #777777;
 }
 
 #menu ul li {
@@ -96,8 +96,8 @@
 }
 
 #menu ul a {    
-	padding: 10px;
-	width: 130px;
+	padding: 0.625em;
+	width: 8.125em;
 	display: block;
 	white-space: nowrap;
 	float: none;
@@ -121,25 +121,25 @@
 
 
 #menu ul li:first-child a{
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 0.3125em 0.3125em 0 0;
+    -webkit-border-radius: 0.3125em 0.3125em 0 0;
+    border-radius: 0.3125em 0.3125em 0 0;
 }
 
 #menu ul li:first-child > a {
-    border-radius: 3px 3px 0 0;
+    border-radius: 0.1875em 0.1875em 0 0;
 }
 
 #menu ul li:first-child a:after{
     content: '';
     position: absolute;
-    left: 30px;
-    top: -8px;
+    left: 1.875em;
+    top: -0.5em;
     width: 0;
     height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 8px solid #444;
+    border-left: 0.3125em solid transparent;
+    border-right: 0.3125em solid transparent;
+    border-bottom: 0.5em solid #444;
 }
 
 #menu ul li:first-child a:hover:after{
@@ -147,9 +147,9 @@
 }
 
 #menu ul li:last-child a{
-    -moz-border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 0.3125em 0.3125em;
+    -webkit-border-radius: 0 0 0.3125em 0.3125em;
+    border-radius: 0 0 0.3125em 0.3125em;
 }
 
 

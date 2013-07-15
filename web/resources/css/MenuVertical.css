@@ -5,7 +5,7 @@ ul,ul ul {
     padding: 0;
 }
 #wrapper {
-    width: 220px;
+    width: 100%;
     alignment-baseline: central;
     font-size: 0.8125em;
 }
@@ -15,8 +15,8 @@ ul,ul ul {
 .menu {
     width: auto;
     -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
-    -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
-    box-shadow: 0px 1px 3px 0px rgba(0,0,0,.73), 0px 0px 18px 0px rgba(0,0,0,.13);
+    -moz-box-shadow: 0% 0.1% 0.3% 0% rgba(0,0,0,.73), 0% 0% 1.5em 0% rgba(0,0,0,.13);
+    box-shadow: 0% 0.1% 0.3% 0% rgba(0,0,0,.73), 0% 0% 1.5em 0% rgba(0,0,0,.13);
 }
 
 .menu > li > a {
@@ -28,9 +28,9 @@ ul,ul ul {
     background-image: -ms-linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
     background-image: linear-gradient(top, rgb(114, 122, 134), rgb(80, 88, 100));
     border-bottom: 1px solid #33373d;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #878e98;
-    -moz-box-shadow: inset 0px 1px 0px 0px #878e98;
-    box-shadow: inset 0px 1px 0px 0px #878e98;
+    -webkit-box-shadow: inset 0% 0.1% 0% 0% #878e98;
+    -moz-box-shadow: inset 0% 0.1% 0% 0% #878e98;
+    box-shadow: inset 0% 0.1% 0% 0% #878e98;
     width: 100%;
     height: 2.75em;
     line-height: 2.75em;
@@ -40,7 +40,7 @@ ul,ul ul {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     color: #fff;
-    text-shadow: 0px 1px 0px rgba(0,0,0,.5);
+    text-shadow: 0% 0.1% 0% rgba(0,0,0,.5);
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -49,7 +49,7 @@ ul,ul ul {
 
 .menu ul li a {
     background: #fff;
-    border-bottom: 1px solid #efeff0;
+    border-bottom: 0.1% solid #efeff0;
     width: 100%;
     height: 2.75em;
     line-height: 2.75em;
@@ -82,13 +82,13 @@ ul,ul ul {
     background-image: linear-gradient(top, rgb(69, 199, 235), rgb(38, 152, 219));
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#45c7eb', EndColorStr='#2698db');
     border-bottom: 1px solid #103c56;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
-    -moz-box-shadow: inset 0px 1px 0px 0px #6ad2ef;
-    box-shadow: inset 0px 1px 0px 0px #6ad2ef;
+    -webkit-box-shadow: inset 0% 0.1% 0% 0% #6ad2ef;
+    -moz-box-shadow: inset 0% 0.1% 0% 0% #6ad2ef;
+    box-shadow: inset 0% 0.1% 0% 0% #6ad2ef;
     font-weight: bold;
 }
 .menu > li > a.active {
-    border-bottom: 1px solid #1a638f;
+    border-bottom: 0.1% solid #1a638f;
     font-weight: bold;
 }
 
@@ -115,10 +115,10 @@ ul,ul ul {
     -webkit-border-radius: .769em;
     -moz-border-radius: 769em;
     border-radius: 769em;
-    text-shadow: 0px 0px 0px rgba(255,255,255,.01);
+    text-shadow: 0% 0% 0% rgba(255,255,255,.01);
 }
 .menu > li > ul li a:before {
-    font-size: 8px;
+    font-size: 0.75em;
     color: #bcbcbf;
     position: absolute;
     width: 1em;

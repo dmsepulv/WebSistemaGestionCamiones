@@ -26,6 +26,8 @@ public interface UsuarioDao {
     public Object selectUsuario(String rut) throws SQLException, NamingException;
 
     public Object selectAllUsuario() throws SQLException, NamingException;
+    
+    public Object selectUsuariosPorEstado(String estadoUsuario) throws SQLException, NamingException;
 
     public boolean updateUsuario(
             String rutUsu,
