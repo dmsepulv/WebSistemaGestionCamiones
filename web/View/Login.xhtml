@@ -6,18 +6,16 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Bienvenido</title>
-        <link type="text/css" href="faces/resources/Css/Login.css" rel="stylesheet" />
-  <h:outputScript library="Script" name="java_valida.js"></h:outputScript>
-    
+        <h:outputStylesheet library="css" name="Login.css"/>
+        <h:outputScript library="js" name="java_valida.js"/>
     </h:head>
-
     <h:body>
         <h:outputStylesheet library="css" name="Login.css"/>
         <f:view>
             <h:form>
                 <div class="container">
                     <div class="header">
-                        <h:graphicImage value="faces/resources/mhgvj.jpg" class="logoLogin"/>
+                        <h:graphicImage  value="/resources/images/mhgvj.jpg" class="logoLogin"/>
                     </div>
                     <div class="content">
                         <h1>
@@ -38,7 +36,7 @@
                             <h:commandButton action="#{login.validateUser()}" value="Ingresar"/>
                         </p>
                     </div>
-                    <div class="footer">
+                    <div class="footerLogin">
                         <p>Copyright 2013© Grupo4 .All rights reserved.</p>
                     </div>
                 </div>

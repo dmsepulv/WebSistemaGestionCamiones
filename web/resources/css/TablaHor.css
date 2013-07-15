@@ -1,6 +1,7 @@
 .order-table-hor{  
     border-collapse:collapse;
     border-style: solid;
+    width: 90%;
 }
 
 .order-table-header-hor{

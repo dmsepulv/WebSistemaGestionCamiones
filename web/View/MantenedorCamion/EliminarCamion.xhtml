@@ -10,17 +10,19 @@
         <f:view>
             <h:form>
                 <p:panel>
-                <center>
-                    <h3>
-                        <label> Esta Seguro que desea borrar el camion con patente : </label>
-                    </h3>
-                    <br/>
-                    <h:outputText style="font-size: xx-large" value="#{camionController.patente_cam}"/>
-                    <h:inputHidden value="#{camionController.patente_cam}"/>
-                <br/>
-                <br/>
-                    <h:commandButton action="#{camionController.deleteCamion()}" value="Eliminar" id="Guardar"/>
-                </center>
+                    <center>
+                        <h:outputLabel value="ELIMINAR CAMIÓN" styleClass="tittleContent" /> 
+                        <br/>
+                        <br/>
+                        <h:outputText value="Esta Seguro que desea borrar el camion con patente :" style="font-size: 14pt;"/>
+                        <br/>
+                        <br/>
+                        <h:outputText style="font-size: xx-large" value="#{camionController.patente_cam}"/>
+                        <h:inputHidden value="#{camionController.patente_cam}"/>
+                        <br/>
+                        <br/>
+                        <h:commandButton action="#{camionController.deleteCamion()}" value="Eliminar" id="Guardar"/>
+                    </center>
                 </p:panel>
             </h:form>
         </f:view>

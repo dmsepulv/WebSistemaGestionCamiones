@@ -32,6 +32,15 @@ public class ListaDropController {
     public void setList(ArrayList<ElementoLista> coffee3List) {
         this.lista = coffee3List;
     }
+    
+    public ArrayList<ElementoLista> cargaListaEstadosFiltro() {
+        lista.clear();
+        lista.add(new ElementoLista("TODOS", 1));
+        lista.add(new ElementoLista("ACTIVO", 2));
+        lista.add(new ElementoLista("NO ACTIVO", 3));
+        lista.add(new ElementoLista("MANTENCION", 4));
+        return lista;
+    }
 
     public ArrayList<ElementoLista> cargaListaEstados() {
         lista.clear();

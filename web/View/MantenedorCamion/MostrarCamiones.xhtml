@@ -10,6 +10,19 @@
             <h:form>  
                 <p:panel>
                     <center>
+                        <h:outputLabel value="Camiones de la Flota " styleClass="tittleContent"/>
+                        <br/>
+                        <br/>
+                    </center>
+                    <div class="filtro">
+                        <h:outputLabel value="Filtro: "/>
+                        <h:selectOneMenu value="#{camionController.estado_cam}">
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltro()}" var="ca"
+                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                        </h:selectOneMenu>
+                    </div>    
+                    <br/>
+                    <center>
                         <h:dataTable value="#{camionController.obtenerCamiones()}" 
                                      var="c"
                                      styleClass="order-table-hor"
@@ -17,32 +30,22 @@
                                      rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
                             <h:column>
                                 <f:facet name="header">Patente</f:facet>
-                                <h:commandLink action="#{camionController.seleccionarCamion(c)}" value="#{c.patenteCam}"/>
+                                <h:commandLink action="#{camionController.seleccionarCamion(c)}" value="#{c.patenteCam}" style="text-transform: uppercase;"/>
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Capacidad</f:facet>
-                                    #{c.capacidadCam}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Estado</f:facet>
-                                    #{c.estadoCam}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Año Adquisición</f:facet>
-                                    #{c.anioAdqCam}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Costo Adquisición</f:facet>
-                                    #{c.costoAdqCam}
+                                #{c.capacidadCam} m<sup>3</sup>
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Año Elaboración</f:facet>
                                     #{c.anioElabCam}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Estado</f:facet>
+                                    #{c.estadoCam}
                             </h:column>
                         </h:dataTable>
                     </center>

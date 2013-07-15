@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -110,6 +109,8 @@ public class LoginController implements Serializable {
                 }
             }
         } else {
+            rut="";
+            password="";
             loggedIn = false;
         }
 

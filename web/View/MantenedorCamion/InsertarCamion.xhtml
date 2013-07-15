@@ -11,7 +11,9 @@
             <h:form >
                 <p:panel>
                     <center>
-                        <h1><label> INGRESAR CAMION </label> </h1>
+                        <h:outputLabel value="INGRESAR CAMION" styleClass="tittleContent" /> 
+                        <br/>
+                        <br/>
                         <table class="order-table">
                             <tr>
                                 <td class="cabecera"><h1><label> Patente </label></h1></td>
@@ -38,9 +40,7 @@
                             <tr>
                                 <td class="cabecera"><h1><label> Estado </label></h1> </td>
                                 <td class="dato">
-                                    <label for="textfield"></label>
-  
-                                    <h:selectOneMenu id="textfieldCAPACIDAD" value="#{camionController.estado_cam}">
+                                    <h:selectOneMenu value="#{camionController.estado_cam}" style="width: 97.5%;">
                                         <f:selectItems value="#{listaDropController.cargaListaEstados()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                                     </h:selectOneMenu>

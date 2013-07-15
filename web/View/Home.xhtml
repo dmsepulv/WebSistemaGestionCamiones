@@ -6,12 +6,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Indice</title>
-        <link type="text/css" href="./../../resources/Css/Home.css" rel="stylesheet" />
+        <h:outputStylesheet library="css" name="Home.css"/>
+        <h:outputStylesheet library="css" name="TablaHor.css"/>
+        <h:outputStylesheet library="css" name="TablaVer.css"/>
+        <h:outputStylesheet library="css" name="Textos.css"/>
     </head>
     <body>
         <div class="centerPane">
             <div class="header">
-                <h:graphicImage value="/resources/mhgvj.jpg"  id="logo" />
+                <h:graphicImage value="/resources/images/mhgvj.jpg"  id="logo" />
                 <ui:include src="Utils/CuadroLogin.xhtml" id="cuadroLogin" />
             </div>
             <div class="menuPrincipal">
@@ -21,7 +24,7 @@
                 <ui:insert name="content"  id="subVistaContent"/>
             </div>
             <div class="footer">
-                <p>Copyright 2013© Grupo4 .All rights reserved</p>
+                <h:outputLabel value="Copyright 2013© Grupo4 .All rights reserved"/>
             </div>
         </div>
     </body>

@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p{
     margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
     padding-right: 15px;
     padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: #666;
     font-size: 80%;
 }
+
 a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
     border: none;
 }
@@ -30,5 +31,12 @@ a:visited {
 }
 a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
     text-decoration: none;
+}
+
+.tittleContent{
+    text-align:center;
+    border-collapse:collapse;
+    border-bottom:3px solid #BBBBBB;
+    font-size: 18pt;
 }
 
