@@ -114,4 +114,11 @@ public class LoginController implements Serializable {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apaterno + " " + amaterno;
+    }
+    
+    
 }

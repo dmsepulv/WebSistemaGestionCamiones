@@ -2,9 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Indice</title>
@@ -14,6 +12,7 @@
         <div class="centerPane">
             <div class="header">
                 <h:graphicImage value="/resources/mhgvj.jpg"  id="logo" />
+                <ui:include src="Utils/CuadroLogin.xhtml" id="cuadroLogin" />
             </div>
             <div class="menuPrincipal">
                 <ui:include src="Utils/MainMenu.xhtml" />

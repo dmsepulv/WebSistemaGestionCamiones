@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>TODO supply a title</title>
+        <link type="text/css" href="../../resources/Css/CuadroLogin.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h:form id="contenidoLogin">
+            <p:panel >
+                <h:outputLabel value="Bienvenido" />
+                <br/>
+                <h:outputLabel value="#{login.toString()}" />
+                <br/>
+                <h:outputLabel value="#{login.rut}"/>
+                <br/>
+                <div id="closeSession">
+                    <h:commandLink action="#{login.logout()}" value="Cerrar Sesión" />
+                </div>
+            </p:panel>
+        </h:form>
+    </body>
+</html>
