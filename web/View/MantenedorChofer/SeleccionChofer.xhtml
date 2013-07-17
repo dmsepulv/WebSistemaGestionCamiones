@@ -21,8 +21,10 @@
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Nombre Chofer"/></td>
-                                <td class="dato"><h:outputText value="#{choferController.nombre_cho.concat(choferController.apaterno_cho)}"/>
-                                    <h:inputHidden value="#{choferController.nombre_cho}"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.toString()}"/>
+                                    <h:inputHidden value="#{choferController.nombre_cho}"/>
+                                    <h:inputHidden value="#{choferController.apaterno_cho}"/>
+                                    <h:inputHidden value="#{choferController.amaterno_cho}"/></td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Fecha de Nacimiento"/></td>

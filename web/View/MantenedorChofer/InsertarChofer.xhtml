@@ -17,7 +17,7 @@
                         <table class="order-table">
                             <tr>
                                 <td class="cabecera"><h:outputText value="Rut Chofer"/></td>
-                                <td class="dato"><p:inputText converter="#{String}" required="true" value="#{choferController.rut_cho}" id="textfieldRUT_CHO">
+                                <td class="dato"><p:inputText converter="#{String}" required="true" value="#{choferController.rut_cho}" onchange="checkRutField(this);" id="textfieldRUT_CHO">
                                         <f:validateLength minimum="9" maximum="10"/> 
                                     </p:inputText>
                                     <h:message for="textfieldRUT_CHO" style="color:red"/>
