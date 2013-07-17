@@ -98,15 +98,12 @@ public class RutaController {
         return rutaService.seleccionarTodasLasRutas();
     }
 
-    public String seleccionarCamion(int cod_ruta) {
+    public void seleccionarRuta(int cod_ruta) {
         Ruta c = rutaService.seleccionarRuta(cod_ruta);
         if (c != null) {
             this.cod_ruta=cod_ruta;
             cod_com_ini=c.getInicio();
             cod_com_dest=c.getDestino();
-            return "encontrado";
-        } else {
-            return "no_encontrado";
-        }
+        } 
     }
 }

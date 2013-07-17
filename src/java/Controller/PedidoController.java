@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.Entity.Pedido;
+import Model.Entity.Cliente;
 import Model.Service.PedidoService;
 import Model.Service.RutaService;
 import java.sql.SQLException;
@@ -46,6 +47,7 @@ public class PedidoController {
     private String prioridad_ped;
     private java.util.Date fecha_entrega_ped;
     private java.util.Date fecha_solicitud_ped;
+    private int codigoRuta;
 
     public PedidoController() {
     }
@@ -142,6 +144,14 @@ public class PedidoController {
         return cod_com_dest;
     }
 
+    public int getCodigoRuta() {
+        return codigoRuta;
+    }
+
+    public void setCodigoRuta(int codigoRuta) {
+        this.codigoRuta = codigoRuta;
+    }
+
     public void setCod_com_dest(int cod_com_dest) {
         this.cod_com_dest = cod_com_dest;
     }
@@ -190,8 +200,8 @@ public class PedidoController {
             clienteController.saveCliente();
         }
         try {
-            int cod_ruta=rutaService.guardarRuta(cod_com_ini, cod_com_dest);
-            if (cod_ruta>-1) {
+            int cod_ruta = rutaService.guardarRuta(cod_com_ini, cod_com_dest);
+            if (cod_ruta > -1) {
                 transaccionCorrecta = pedidoService.guardarPedido(
                         clienteController.getCod_cli(),
                         loginController.getRut(),
@@ -202,7 +212,7 @@ public class PedidoController {
                         fecha_entrega_ped,
                         fecha_solicitud_ped,
                         cod_ruta);
-                
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(PedidoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,7 +262,11 @@ public class PedidoController {
             prioridad_ped = c.getPrioridad_ped();
             fecha_entrega_ped = c.getFecha_entrega_ped();
             fecha_solicitud_ped = c.getFecha_solicitud_ped();
-            rutaController.seleccionarCamion(cod_ped);
+            codigoRuta = c.getCod_ruta();
+            rutaController.seleccionarRuta(codigoRuta);
+            Cliente cliente = new Cliente();
+            cliente.setCodCli(cod_cli);
+            clienteController.seleccionarClienteParaSeleccionPedido(cliente);
             return "encontrado";
         } else {
             return "no_encontrado";

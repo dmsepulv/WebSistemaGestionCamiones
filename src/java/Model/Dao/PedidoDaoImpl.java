@@ -94,7 +94,8 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         stb.append("       observacion_ped,  ");
         stb.append("       prioridad_ped,  ");
         stb.append("       fecha_entrega_ped,  ");
-        stb.append("       fecha_solicitud_ped  ");
+        stb.append("       fecha_solicitud_ped,  ");
+        stb.append("       cod_ruta  ");
         stb.append(" FROM  \"PEDIDO\"  ");
         stb.append(" WHERE cod_ped = ? ; ");
 
@@ -113,6 +114,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
             datosPedido.add(rs.getString("prioridad_ped"));
             datosPedido.add(rs.getDate("fecha_entrega_ped"));
             datosPedido.add(rs.getDate("fecha_solicitud_ped"));
+            datosPedido.add(rs.getInt("cod_ruta"));
         }
 
         conn.close();

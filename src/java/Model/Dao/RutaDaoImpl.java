@@ -225,6 +225,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         return transaccionCorrecta;
     }
 
+    @Override
     public Object selectRutaExacta(int cod_ruta) throws SQLException, NamingException {
 
         LinkedList<Object> datosRuta = null;
@@ -252,7 +253,8 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         stb.append("       public.\"COMUNA\", ");
         stb.append("       COMUNA_TEMP	");
         stb.append("WHERE  \"COMUNA\".cod_com = \"RUTA\".cod_com_ini and ");
-        stb.append("       COMUNA_TEMP.cod_com = \"RUTA\".cod_com_dest; ");
+        stb.append("       COMUNA_TEMP.cod_com = \"RUTA\".cod_com_dest and ");
+        stb.append("       \"RUTA\".cod_ruta = ?; ");
 
         PreparedStatement query = conn.prepareStatement(stb.toString());
         query.setInt(1, cod_ruta);

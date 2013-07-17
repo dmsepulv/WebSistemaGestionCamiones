@@ -14,6 +14,8 @@ public interface RutaDao {
             int cod_com_dest) throws SQLException, NamingException;
             
     public Object selectRuta(int cod_ruta) throws SQLException, NamingException;
+    
+    public Object selectRutaExacta(int cod_ruta) throws SQLException, NamingException;
 
     public Object selectAllRuta() throws SQLException, NamingException;
 

@@ -206,6 +206,23 @@ public class ClienteController {
             clienteEncontrado = true;
         }
     }
+    
+     public void seleccionarClienteParaSeleccionPedido(Cliente cliente) {
+
+        Cliente c = clienteService.seleccionarCliente(cliente.getCodCli());
+        if (c != null) {
+            cod_cli = c.getCodCli();
+            cod_com = c.getComuna().getCodCom();
+            nombre_com = c.getComuna().getNombreCom();
+            nombre_cli = c.getNombreCli();
+            apaterno_cli = c.getApaternoCli();
+            amaterno_cli = c.getAmaternoCli();
+            telefono_cli = c.getTelefonoCli();
+            mail_cli = c.getMailCli();
+            direccion_cli = c.getDireccionCli();
+            clienteEncontrado = true;
+        }
+    }
 
     public void clean() {
         cod_cli = null;

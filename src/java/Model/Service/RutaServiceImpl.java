@@ -37,16 +37,15 @@ public class RutaServiceImpl implements RutaService {
     public Ruta seleccionarRuta(int cod_ruta) {
         Ruta ruta = null;
         try {
-            LinkedList<Object> datosRuta = (LinkedList<Object>) rutaDao.selectRuta(cod_ruta);
+            LinkedList<Object> datosRuta = (LinkedList<Object>) rutaDao.selectRutaExacta(cod_ruta);
             if (datosRuta != null) {
                 ruta = new Ruta();
 
                 ruta.setCod_ruta((Integer) datosRuta.get(0));
                 ruta.setCod_com_ini((Integer) datosRuta.get(1));
-                ruta.setCod_com_dest((Integer) datosRuta.get(2));
-                ruta.setT_prom_ruta((Float) datosRuta.get(3));
-                ruta.setDist_prom_ruta((Float) datosRuta.get(4));
-
+                ruta.setCod_com_dest((Integer) datosRuta.get(3));
+                ruta.setInicio(datosRuta.get(2)+"");
+                ruta.setDestino(datosRuta.get(4)+"");
             }
         } catch (SQLException ex) {
             Logger.getLogger(CamionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

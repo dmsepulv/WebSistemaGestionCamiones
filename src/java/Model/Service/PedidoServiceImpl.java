@@ -64,6 +64,7 @@ public class PedidoServiceImpl implements PedidoService {
                 pedido.setPrioridad_ped((String) datosPedido.get(6));
                 pedido.setFecha_entrega_ped((Date) datosPedido.get(7));
                 pedido.setFecha_solicitud_ped((Date) datosPedido.get(8));
+                pedido.setCod_ruta((Integer) datosPedido.get(9));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CamionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

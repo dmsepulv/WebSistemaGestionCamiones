@@ -21,6 +21,7 @@ public class Pedido {
     private String prioridad_ped;
     private Date fecha_entrega_ped;
     private Date fecha_solicitud_ped;
+    private int cod_ruta;
 
     public Pedido() {
     }
@@ -95,6 +96,14 @@ public class Pedido {
 
     public void setFecha_solicitud_ped(Date fecha_solicitud_ped) {
         this.fecha_solicitud_ped = fecha_solicitud_ped;
+    }
+
+    public int getCod_ruta() {
+        return cod_ruta;
+    }
+
+    public void setCod_ruta(int cod_ruta) {
+        this.cod_ruta = cod_ruta;
     }
 
     @Override
