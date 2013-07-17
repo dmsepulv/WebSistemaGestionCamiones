@@ -254,6 +254,30 @@ public class PedidoController {
     public String seleccionarPedido(Pedido pedido) {
         Pedido c = pedidoService.seleccionarPedido(pedido.getCod_ped());
         if (c != null) {
+            cod_ped=c.getCod_ped();
+            cod_cli = c.getCod_cli();
+            rut_usu = c.getRut_usu();
+            tipo_ped = c.getTipo_ped();
+            cantidad_ped = c.getCantidad_ped();
+            observacion_ped = c.getObservacion_ped();
+            prioridad_ped = c.getPrioridad_ped();
+            fecha_entrega_ped = c.getFecha_entrega_ped();
+            fecha_solicitud_ped = c.getFecha_solicitud_ped();
+            codigoRuta = c.getCod_ruta();
+            rutaController.seleccionarRuta(codigoRuta);
+            Cliente cliente = new Cliente();
+            cliente.setCodCli(cod_cli);
+            clienteController.seleccionarClienteParaSeleccionPedido(cliente);
+            return "encontrado";
+        } else {
+            return "no_encontrado";
+        }
+    }
+    
+    public String seleccionarPedidoPorID() {
+        Pedido c = pedidoService.seleccionarPedido(cod_ped);
+        if (c != null) {
+            cod_ped=c.getCod_ped();
             cod_cli = c.getCod_cli();
             rut_usu = c.getRut_usu();
             tipo_ped = c.getTipo_ped();
