@@ -1,21 +1,19 @@
-.order-table{   
+.order-table-pedido{   
     width: content-box;
     border-collapse: collapse;
     border-style: solid;
 }
 
-.cabecera{
+.cabecera-pedido{
     text-align:center;
     background:none repeat scroll 0 0 #E5E5E5;
-    border-bottom:0.0625em solid #BBBBBB;
     padding-left:1em;
     padding-right: 1em;
     font-size: 1em;
 }
 
-.dato{
+.dato-pedido{
     text-align:center;
     background:none repeat scroll 0 0 #FFF;
-    border-top:0.0625em solid #BBBBBB;
     padding:1em; 
 }

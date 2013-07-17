@@ -22,30 +22,25 @@ public class RutaServiceImpl implements RutaService {
 
     private @Inject
     RutaDao rutaDao;
-    
 
-        public boolean guardarRuta(
-            int cod_ruta,
+    @Override
+    public int guardarRuta(
             int cod_com_ini,
-            int cod_com_dest,
-            float t_prom_ruta,
-            float dist_prom_ruta) throws SQLException, NamingException {
+            int cod_com_dest) throws SQLException, NamingException {
 
-        return  rutaDao.insertRuta(cod_ruta,
-				cod_com_ini,
-				cod_com_dest,
-				t_prom_ruta,
-				dist_prom_ruta);
+        return rutaDao.insertRuta(cod_com_ini,
+                cod_com_dest);
 
     }
 
-        public Ruta seleccionarRuta(int cod_ruta) {
+    @Override
+    public Ruta seleccionarRuta(int cod_ruta) {
         Ruta ruta = null;
         try {
             LinkedList<Object> datosRuta = (LinkedList<Object>) rutaDao.selectRuta(cod_ruta);
             if (datosRuta != null) {
                 ruta = new Ruta();
-                
+
                 ruta.setCod_ruta((Integer) datosRuta.get(0));
                 ruta.setCod_com_ini((Integer) datosRuta.get(1));
                 ruta.setCod_com_dest((Integer) datosRuta.get(2));
@@ -63,7 +58,9 @@ public class RutaServiceImpl implements RutaService {
 
     }
 
-        public LinkedList<Ruta> seleccionarTodasLasRutas() {
+    @Override
+    @SuppressWarnings("empty-statement")
+    public LinkedList<Ruta> seleccionarTodasLasRutas() {
         Ruta ruta;
         LinkedList<Ruta> rutaRetorno = null;
         LinkedList<Object> rutas;;
@@ -74,11 +71,11 @@ public class RutaServiceImpl implements RutaService {
                 for (int i = 0; i < rutas.size(); i++) {
                     ArrayList<Object> datosRuta = (ArrayList<Object>) rutas.get(i);
                     ruta = new Ruta();
-                ruta.setCod_ruta((Integer) datosRuta.get(0));
-                ruta.setCod_com_ini((Integer) datosRuta.get(1));
-                ruta.setCod_com_dest((Integer) datosRuta.get(2));
-                ruta.setT_prom_ruta((Float) datosRuta.get(3));
-                ruta.setDist_prom_ruta((Float) datosRuta.get(4));
+                    ruta.setCod_ruta((Integer) datosRuta.get(0));
+                    ruta.setCod_com_ini((Integer) datosRuta.get(1));
+                    ruta.setCod_com_dest((Integer) datosRuta.get(2));
+                    ruta.setT_prom_ruta((Float) datosRuta.get(3));
+                    ruta.setDist_prom_ruta((Float) datosRuta.get(4));
                     rutaRetorno.add(ruta);
                 }
             }
@@ -91,7 +88,8 @@ public class RutaServiceImpl implements RutaService {
 
     }
 
-        public boolean actualizarRuta(
+    @Override
+    public boolean actualizarRuta(
             int cod_ruta,
             int cod_com_ini,
             int cod_com_dest,
@@ -99,14 +97,15 @@ public class RutaServiceImpl implements RutaService {
             float dist_prom_ruta) throws SQLException, NamingException {
 
         return rutaDao.updateRuta(
-             cod_ruta,
-	     cod_com_ini,
-	     cod_com_dest,
-             t_prom_ruta,
-	     dist_prom_ruta);
+                cod_ruta,
+                cod_com_ini,
+                cod_com_dest,
+                t_prom_ruta,
+                dist_prom_ruta);
     }
 
-        public boolean eliminarRuta(int cod_ruta) {
+    @Override
+    public boolean eliminarRuta(int cod_ruta) {
         boolean transaccionCorrecta = false;
         try {
             transaccionCorrecta = rutaDao.deleteRuta(cod_ruta);
@@ -117,11 +116,4 @@ public class RutaServiceImpl implements RutaService {
         }
         return transaccionCorrecta;
     }
-
-   
-   
-
-  
-
-
 }

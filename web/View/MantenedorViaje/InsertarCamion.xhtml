@@ -16,66 +16,69 @@
                         <br/>
                         <table class="order-table">
                             <tr>
-                                <td class="cabecera"><h:outputText value="Patente" /></td>
+                                <td class="cabecera"><h1><label> Patente </label></h1></td>
                                 <td class="dato">
-                                    <p:inputText converter="#{String}" value="#{camionController.patente_cam}" id="textfieldPATENTE" required="true" >
+                                    <label for="textfield"></label>
+                                    <h:inputText converter="#{String}" value="#{camionController.patente_cam}" id="textfieldPATENTE" required="true" >
                                         <!--  <f:validateRegex pattern="/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}|[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/i"></f:validateRegex> -->
                                         <f:validateLength minimum="0" maximum="8" />
-                                    </p:inputText>
+                                    </h:inputText>
                                     <h:message for="textfieldPATENTE" style="color:red" />
                                 </td>
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Capacidad"/></td>
+                                <td class="cabecera"><h1><label> Capacidad</label></h1></td>
                                 <td class="dato">   
                                     <label for="textfield"></label>
-                                    <p:inputText converter="#{Integer}" id="textfieldCAPACIDAD" required="true" value="#{camionController.capacidad_cam}" >
+                                    <h:inputText converter="#{Integer}" id="textfieldCAPACIDAD" required="true" value="#{camionController.capacidad_cam}" >
                                         <f:validateDoubleRange minimum="0" />
-                                    </p:inputText>
+                                    </h:inputText>
+
                                     <h:message for="textfieldCAPACIDAD"  style="color:red"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Estado"/></td>
+                                <td class="cabecera"><h1><label> Estado </label></h1> </td>
                                 <td class="dato">
-                                    <p:selectOneMenu value="#{camionController.estado_cam}" style="width: 97.5%;">
+                                    <h:selectOneMenu value="#{camionController.estado_cam}" style="width: 97.5%;">
                                         <f:selectItems value="#{listaDropController.cargaListaEstados()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                    </p:selectOneMenu>
+                                    </h:selectOneMenu>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Año adquisicion"/></td>
+                                <td class="cabecera"><h1><label> Año adquisicion </label> </h1></td>
                                 <td class="dato">
                                     <label for="textfield"></label>
-                                    <p:inputText value="#{camionController.anio_adq_cam}" converter="#{Integer}" required="true" id="textfieldANIOA">
+                                    <h:inputText value="#{camionController.anio_adq_cam}" converter="#{Integer}" required="true" id="textfieldANIOA">
                                         <f:validateLongRange minimum="1980"/>
-                                    </p:inputText>
+                                    </h:inputText>
                                     <h:message for="textfieldANIOA" style="color:red"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Costo Adquisicion"/></td>
+                                <td class="cabecera"><h1><label> Costo Adquisicion </label> </h1></td>
                                 <td class="dato">
                                     <label for="textfield"></label>
-                                    <p:inputText converter="#{Integer}" value="#{camionController.costo_adq_cam}" id="textfieldCOSTO">
+                                    <h:inputText converter="#{Integer}" value="#{camionController.costo_adq_cam}" id="textfieldCOSTO">
                                         <f:validateDoubleRange minimum="0" />
                                         <h:message for="textfieldCAPACIDAD" style="color:red" />
-                                    </p:inputText>
+                                    </h:inputText>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Año Elaboracion"/></td>
+                                <td class="cabecera"><h1><label> Año Elaboracion </label></h1></td>
                                 <td class="dato">
-                                    <p:inputText value="#{camionController.anio_elab_cam}" id="textfieldANIOE" >
+                                    <label for="textfield"></label>
+                                    <h:inputText value="#{camionController.anio_elab_cam}" id="textfieldANIOE" >
                                         <f:validateLongRange minimum="1980"/>
-                                    </p:inputText>
+                                    </h:inputText>
                                     <h:message for="textfieldANIOE" style="color:red"/>
                                 </td>
                             </tr>
                         </table>
                         <br/>
-                        <p:commandButton actionListener="#{camionController.saveCamion()}" ajax="false" value="Guardar" id="Guardar"/>
+                        <h:commandButton action="#{camionController.saveCamion()}" value="Guardar" id="Guardar"/>
                     </center>
                 </p:panel>
             </h:form>

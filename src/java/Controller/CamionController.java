@@ -89,10 +89,10 @@ public class CamionController {
     public String saveCamion() {
         boolean transaccionCorrecta = false;
         try {
-            estado_cam=estado_cam.charAt(0)=='1'?"ACTIVO":estado_cam;
-            estado_cam=estado_cam.charAt(0)=='2'?"NO ACTIVO":estado_cam;
-            estado_cam=estado_cam.charAt(0)=='3'?"MANTENCION":estado_cam;
-            patente_cam= patente_cam.toUpperCase();
+            estado_cam = estado_cam.charAt(0) == '1' ? "ACTIVO" : estado_cam;
+            estado_cam = estado_cam.charAt(0) == '2' ? "NO ACTIVO" : estado_cam;
+            estado_cam = estado_cam.charAt(0) == '3' ? "MANTENCION" : estado_cam;
+            patente_cam = patente_cam.toUpperCase();
             transaccionCorrecta = camionService.guardarCamion(patente_cam,
                     capacidad_cam,
                     estado_cam,
@@ -111,9 +111,9 @@ public class CamionController {
     public String updateCamion() {
         boolean transaccionCorrecta = false;
         try {
-            estado_cam=estado_cam.charAt(0)=='1'?"ACTIVO":estado_cam;
-            estado_cam=estado_cam.charAt(0)=='2'?"NO ACTIVO":estado_cam;
-            estado_cam=estado_cam.charAt(0)=='3'?"MANTENCION":estado_cam;
+            estado_cam = estado_cam.charAt(0) == '1' ? "ACTIVO" : estado_cam;
+            estado_cam = estado_cam.charAt(0) == '2' ? "NO ACTIVO" : estado_cam;
+            estado_cam = estado_cam.charAt(0) == '3' ? "MANTENCION" : estado_cam;
             transaccionCorrecta = camionService.actualizarCamion(patente_cam,
                     capacidad_cam,
                     estado_cam,
@@ -135,7 +135,7 @@ public class CamionController {
 
     public String deleteCamion() {
         return camionService.eliminarCamion(patente_cam) ? "eliminado" : "noeliminado";
-    }   
+    }
 
     public String seleccionarCamion(Camion camion) {
         Camion c = camionService.seleccionarCamion(camion.getPatenteCam());

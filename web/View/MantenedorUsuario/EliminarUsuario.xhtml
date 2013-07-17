@@ -10,17 +10,17 @@
         <f:view>
             <h:form>
                 <p:panel>
-                <center>
-                    <h3>
-                        <label> Esta Seguro que desea borrar el usuario con Rut : </label>
-                    </h3>
-                    <br/>
-                    <h:outputText style="font-size: xx-large" value="#{usuarioController.rutUsu}"/>
-                    <h:inputHidden value="#{usuarioController.rutUsu}"/>
-                <br/>
-                <br/>
-                    <h:commandButton action="#{usuarioController.deleteUsuario()}" value="Eliminar" id="Guardar"/>
-                </center>
+                    <center>
+                        <h3>
+                            <label> Esta Seguro que desea borrar el usuario con Rut : </label>
+                        </h3>
+                        <br/>
+                        <h:outputText style="font-size: xx-large" value="#{usuarioController.rutUsu}"/>
+                        <h:inputHidden value="#{usuarioController.rutUsu}"/>
+                        <br/>
+                        <br/>
+                        <p:commandButton action="#{usuarioController.deleteUsuario()}" ajax="false" value="Eliminar" id="Guardar"/>
+                    </center>
                 </p:panel>
             </h:form>
         </f:view>

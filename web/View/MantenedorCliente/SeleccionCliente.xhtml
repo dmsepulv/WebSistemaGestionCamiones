@@ -4,65 +4,65 @@
 <ui:composition template="./../Administracion.xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface">
         <f:view>
             <h:form>
-                <h3><label> DATOS CLIENTE </label> </h3>
-                <center>
-                    <table class="order-table">
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.cod_cli}"/>
-                                <h:inputHidden value="#{cliente.cod_cli}"/></td>
+                <p:panel>
+                    <center>
+                        <h3><label> DATOS CLIENTE </label> </h3>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.cod_cli}"/>
+                                    <h:inputHidden value="#{cliente.cod_cli}"/></td>
 
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Nombre"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.nombre_cli}"/>
-                                <h:inputHidden value="#{cliente.nombre_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.apaterno_cli}"/>
-                                <h:inputHidden value="#{cliente.apaterno_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.amaterno_cli}"/>
-                                <h:inputHidden value="#{cliente.amaterno_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Telefono"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.telefono_cli}"/>
-                                <h:inputHidden value="#{cliente.telefono_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="E-mail"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.mail_cli}"/>
-                                <h:inputHidden value="#{cliente.mail_cli}"/></td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Dirección"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.direccion_cli}"/>
-                                <h:inputHidden value="#{cliente.direccion_cli}"/></td>
-                        </tr>
-                        
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Comuna"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.nombre_com}"/>
-                                <h:inputHidden value="#{cliente.cod_com}"/></td>
-                        </tr>
-                    </table>
-                </center>
-                <br/>
-                <center>
-                    <h:commandButton action="EditarCliente" value="Editar"/>
-                    <h:outputText style="width:20px;"/>
-                    <h:commandButton action="EliminarCliente" value="Eliminar"/>
-                </center>
-                <br/>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Nombre"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.nombre_cli}"/>
+                                    <h:inputHidden value="#{cliente.nombre_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.apaterno_cli}"/>
+                                    <h:inputHidden value="#{cliente.apaterno_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.amaterno_cli}"/>
+                                    <h:inputHidden value="#{cliente.amaterno_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Telefono"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.telefono_cli}"/>
+                                    <h:inputHidden value="#{cliente.telefono_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="E-mail"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.mail_cli}"/>
+                                    <h:inputHidden value="#{cliente.mail_cli}"/></td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Dirección"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.direccion_cli}"/>
+                                    <h:inputHidden value="#{cliente.direccion_cli}"/></td>
+                            </tr>
+
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Comuna"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.nombre_com}"/>
+                                    <h:inputHidden value="#{cliente.cod_com}"/></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <p:commandButton action="EditarCliente" ajax="false" value="Editar"/>
+                        <h:outputLabel style="padding-right: 5%" />
+                        <p:commandButton action="EliminarCliente" ajax="false" value="Eliminar"/>
+                    </center>
+                </p:panel>
             </h:form>
         </f:view>
     </ui:define>

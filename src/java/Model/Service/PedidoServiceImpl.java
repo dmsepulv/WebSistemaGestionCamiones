@@ -24,8 +24,8 @@ public class PedidoServiceImpl implements PedidoService {
     private @Inject
     PedidoDao pedidoDao;
 
-        public boolean guardarPedido(
-            int cod_ped,
+    @Override
+    public boolean guardarPedido(
             String cod_cli,
             String rut_usu,
             String tipo_ped,
@@ -33,10 +33,10 @@ public class PedidoServiceImpl implements PedidoService {
             String observacion_ped,
             String prioridad_ped,
             Date fecha_entrega_ped,
-            Date fecha_solicitud_ped) throws SQLException, NamingException {
+            Date fecha_solicitud_ped,
+            int cod_ruta) throws SQLException, NamingException {
 
         return pedidoDao.insertPedido(
-                cod_ped,
                 cod_cli,
                 rut_usu,
                 tipo_ped,
@@ -44,17 +44,17 @@ public class PedidoServiceImpl implements PedidoService {
                 observacion_ped,
                 prioridad_ped,
                 fecha_entrega_ped,
-                fecha_solicitud_ped);
-
+                fecha_solicitud_ped,
+                cod_ruta);
     }
 
-        public Pedido seleccionarPedido(int cod_ped) {
+    @Override
+    public Pedido seleccionarPedido(int cod_ped) {
         Pedido pedido = null;
         try {
             LinkedList<Object> datosPedido = (LinkedList<Object>) pedidoDao.selectPedido(cod_ped);
             if (datosPedido != null) {
                 pedido = new Pedido();
-
                 pedido.setCod_ped((Integer) datosPedido.get(0));
                 pedido.setCod_cli((String) datosPedido.get(1));
                 pedido.setRut_usu((String) datosPedido.get(2));
@@ -64,8 +64,6 @@ public class PedidoServiceImpl implements PedidoService {
                 pedido.setPrioridad_ped((String) datosPedido.get(6));
                 pedido.setFecha_entrega_ped((Date) datosPedido.get(7));
                 pedido.setFecha_solicitud_ped((Date) datosPedido.get(8));
-
-
             }
         } catch (SQLException ex) {
             Logger.getLogger(CamionServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,7 +75,8 @@ public class PedidoServiceImpl implements PedidoService {
 
     }
 
-        public LinkedList<Pedido> seleccionarTodosLosPedido() {
+    @Override
+    public LinkedList<Pedido> seleccionarTodosLosPedido() {
         Pedido pedido;
         LinkedList<Pedido> pedidoRetorno = null;
         LinkedList<Object> pedidos;
@@ -88,7 +87,6 @@ public class PedidoServiceImpl implements PedidoService {
                 for (int i = 0; i < pedidos.size(); i++) {
                     ArrayList<Object> datosPedido = (ArrayList<Object>) pedidos.get(i);
                     pedido = new Pedido();
-
                     pedido.setCod_ped((Integer) datosPedido.get(0));
                     pedido.setCod_cli((String) datosPedido.get(1));
                     pedido.setRut_usu((String) datosPedido.get(2));
@@ -110,7 +108,8 @@ public class PedidoServiceImpl implements PedidoService {
 
     }
 
-        public boolean actualizarPedido(
+    @Override
+    public boolean actualizarPedido(
             int cod_ped,
             String cod_cli,
             String rut_usu,
@@ -119,23 +118,22 @@ public class PedidoServiceImpl implements PedidoService {
             String observacion_ped,
             String prioridad_ped,
             Date fecha_entrega_ped,
-            Date fecha_solicitud_ped
-            
-       ) throws SQLException, NamingException {
+            Date fecha_solicitud_ped) throws SQLException, NamingException {
 
         return pedidoDao.updatePedido(
-             cod_ped,
-             cod_cli,
-             rut_usu,
-             tipo_ped,
-             cantidad_ped,
-             observacion_ped,
-             prioridad_ped,
-             fecha_entrega_ped,
-             fecha_solicitud_ped);
+                cod_ped,
+                cod_cli,
+                rut_usu,
+                tipo_ped,
+                cantidad_ped,
+                observacion_ped,
+                prioridad_ped,
+                fecha_entrega_ped,
+                fecha_solicitud_ped);
     }
 
-        public boolean eliminarPedido(int cod_ped) {
+    @Override
+    public boolean eliminarPedido(int cod_ped) {
         boolean transaccionCorrecta = false;
         try {
             transaccionCorrecta = pedidoDao.deletePedido(cod_ped);
@@ -146,6 +144,4 @@ public class PedidoServiceImpl implements PedidoService {
         }
         return transaccionCorrecta;
     }
-
-
 }

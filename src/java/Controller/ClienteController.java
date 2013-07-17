@@ -12,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.CustomScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import javax.naming.NamingException;
 
@@ -20,7 +22,7 @@ import javax.naming.NamingException;
  * @author darwin
  */
 @ManagedBean(name = "cliente")
-@RequestScoped
+@SessionScoped
 public class ClienteController {
 
     private String cod_cli;
@@ -34,6 +36,7 @@ public class ClienteController {
     private String direccion_cli;
     private @Inject
     ClienteService clienteService;
+    private boolean clienteEncontrado = false;
 
     /**
      * Creates a new instance of ClienteController
@@ -113,12 +116,12 @@ public class ClienteController {
         this.nombre_com = nombre_com;
     }
 
-    public ClienteService getClienteService() {
-        return clienteService;
+    public boolean isClienteEncontrado() {
+        return clienteEncontrado;
     }
 
-    public void setClienteService(ClienteService clienteService) {
-        this.clienteService = clienteService;
+    public void setClienteEncontrado(boolean clienteEncontrado) {
+        this.clienteEncontrado = clienteEncontrado;
     }
 
     public String saveCliente() {
@@ -132,7 +135,6 @@ public class ClienteController {
                     telefono_cli,
                     mail_cli,
                     direccion_cli);
-
         } catch (SQLException ex) {
             Logger.getLogger(ClienteController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NamingException ex) {
@@ -181,9 +183,45 @@ public class ClienteController {
             telefono_cli = c.getTelefonoCli();
             mail_cli = c.getMailCli();
             direccion_cli = c.getDireccionCli();
+            clienteEncontrado = true;
             return "encontrado";
         } else {
             return "no_encontrado";
         }
+    }
+
+    public void seleccionarClienteParaPedido() {
+
+        Cliente c = clienteService.seleccionarCliente(cod_cli);
+        if (c != null) {
+            cod_cli = c.getCodCli();
+            cod_com = c.getComuna().getCodCom();
+            nombre_com = c.getComuna().getNombreCom();
+            nombre_cli = c.getNombreCli();
+            apaterno_cli = c.getApaternoCli();
+            amaterno_cli = c.getAmaternoCli();
+            telefono_cli = c.getTelefonoCli();
+            mail_cli = c.getMailCli();
+            direccion_cli = c.getDireccionCli();
+            clienteEncontrado = true;
+        }
+    }
+
+    public void clean() {
+        cod_cli = null;
+        cod_com = 0;
+        nombre_com = null;
+        nombre_cli = null;
+        apaterno_cli = null;
+        amaterno_cli = null;
+        telefono_cli = null;
+        mail_cli = null;
+        direccion_cli = null;
+        clienteEncontrado = false;
+    }
+
+    @Override
+    public String toString() {
+        return apaterno_cli + " " + amaterno_cli + " " + nombre_cli;
     }
 }

@@ -16,14 +16,12 @@ import javax.sql.DataSource;
  */
 public class RutaDaoImpl extends Conexion implements RutaDao {
 
-    public boolean insertRuta(
-            int cod_ruta,
+    @Override
+    public int insertRuta(
             int cod_com_ini,
-            int cod_com_dest,
-            float t_prom_ruta,
-            float dist_prom_ruta) throws SQLException, NamingException {
-
-        boolean transaccionCorrecta = false;
+            int cod_com_dest) throws SQLException, NamingException {
+        
+        int transaccionCorrecta = -1;
         DataSource sgc_connection = getSgc_connection();
         if (sgc_connection == null) {
             throw new SQLException("No data source");
@@ -32,26 +30,52 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         if (conn == null) {
             throw new SQLException("No connection");
         }
+
         StringBuilder stb = new StringBuilder();
-        stb.append("INSERT INTO \"RUTA\"");
-        stb.append("       (cod_ruta , ");
+        stb.append(" SELECT cod_ruta , ");
         stb.append("       cod_com_ini , ");
-        stb.append("       Com_cod_com , ");
+        stb.append("       cod_com_dest , ");
         stb.append("       t_prom_ruta , ");
-        stb.append("       dist_prom_ruta)  ");
-        stb.append(" values ( ? , ? , ? , ? , ? , ? , ? , ? , ?) ;");
+        stb.append("       dist_prom_ruta  ");
+        stb.append(" FROM  \"RUTA\"  ");
+        stb.append(" WHERE cod_com_ini = ? AND cod_com_dest = ? ; ");
+
         PreparedStatement query = conn.prepareStatement(stb.toString());
+        query.setInt(1, cod_com_ini);
+        query.setInt(2, cod_com_dest);
+        ResultSet rs = query.executeQuery();
 
-        query.setInt(1, cod_ruta);
-        query.setInt(2, cod_com_ini);
+        if (!rs.next()) {
+            stb = new StringBuilder();
+            stb.append("INSERT INTO \"RUTA\"");
+            stb.append("       (cod_com_ini , ");
+            stb.append("       cod_com_dest )  ");
+            stb.append("VALUES ( ? , ? ) ;");
+            query = conn.prepareStatement(stb.toString());
 
-        query.setInt(3, cod_com_dest);
-        query.setFloat(4, t_prom_ruta);
-        query.setFloat(5, dist_prom_ruta);
+            query.setInt(1, cod_com_ini);
+            query.setInt(2, cod_com_dest);
 
-        query.executeUpdate();
+            query.executeUpdate();
 
-        transaccionCorrecta = true;
+            stb = new StringBuilder();
+            stb.append(" SELECT cod_ruta , ");
+            stb.append("       cod_com_ini , ");
+            stb.append("       cod_com_dest , ");
+            stb.append("       t_prom_ruta , ");
+            stb.append("       dist_prom_ruta  ");
+            stb.append(" FROM  \"RUTA\"  ");
+            stb.append(" WHERE cod_com_ini = ? AND cod_com_dest = ? ; ");
+
+            query = conn.prepareStatement(stb.toString());
+            query.setInt(1, cod_com_ini);
+            query.setInt(2, cod_com_dest);
+            rs = query.executeQuery();
+            if(rs.next()){
+                transaccionCorrecta=rs.getInt("cod_ruta");
+            }
+            
+        }
         return transaccionCorrecta;
     }
 
@@ -96,6 +120,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         return datosRuta;
     }
 
+    @Override
     public Object selectAllRuta() throws SQLException, NamingException {
         LinkedList<Object> rutas = null;
 
@@ -137,6 +162,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         return rutas;
     }
 
+    @Override
     public boolean updateRuta(
             int cod_ruta,
             int cod_com_ini,
@@ -176,6 +202,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         return transaccionCorrecta;
     }
 
+    @Override
     public boolean deleteRuta(int cod_ruta) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
@@ -196,10 +223,8 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
         transaccionCorrecta = true;
         conn.close();
         return transaccionCorrecta;
-    }  
-    
-    
-    
+    }
+
     public Object selectRutaExacta(int cod_ruta) throws SQLException, NamingException {
 
         LinkedList<Object> datosRuta = null;
@@ -240,15 +265,11 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
             datosRuta.add(rs.getString("nombre_com_ini"));
             datosRuta.add(rs.getInt("cod_com_dest"));
             datosRuta.add(rs.getString("nombre_com_des"));
-            
+
         }
 
         conn.close();
 
         return datosRuta;
     }
-
-    
-    
-   
 }

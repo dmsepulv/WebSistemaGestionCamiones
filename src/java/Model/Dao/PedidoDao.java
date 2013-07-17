@@ -15,7 +15,6 @@ import javax.naming.NamingException;
 public interface PedidoDao {
 
     public boolean insertPedido(
-            int cod_ped,
             String cod_cli,
             String rut_usu,
             String tipo_ped,
@@ -23,7 +22,8 @@ public interface PedidoDao {
             String observacion_ped,
             String prioridad_ped,
             Date fecha_entrega_ped,
-            Date fecha_solicitud_ped) throws SQLException, NamingException;
+            Date fecha_solicitud_ped,
+            int cod_ruta) throws SQLException, NamingException;
 
     public Object selectPedido(int cod_ped) throws SQLException, NamingException;
 

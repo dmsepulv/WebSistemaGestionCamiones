@@ -41,7 +41,7 @@ public class ViajeDaoImpl extends Conexion implements ViajeDao {
         StringBuilder stb = new StringBuilder();
         stb.append("INSERT INTO \"VIAJE\"");
         stb.append("       (cod_via , ");
-         stb.append("       (cod_ruta , ");
+         stb.append("      cod_ruta , ");
         stb.append("       patente_cam , ");
         stb.append("       rut_cho , ");
         stb.append("       fecha_carga_via,  ");

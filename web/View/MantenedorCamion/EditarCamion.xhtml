@@ -22,40 +22,40 @@
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Capacidad"/></td>
-                                <td class="dato"><h:inputText id="textfieldCAPACIDAD"  value="#{camionController.capacidad_cam}" >
-                                    </h:inputText>
+                                <td class="dato"><p:inputText id="textfieldCAPACIDAD"  value="#{camionController.capacidad_cam}" >
+                                    </p:inputText>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Estado"/></td>
                                 <td class="dato"> 
-                                    <h:selectOneMenu value="#{camionController.estado_cam}" style="width: 97.5%;">
+                                    <p:selectOneMenu value="#{camionController.estado_cam}" style="width: 97.5%;">
                                         <f:selectItems value="#{listaDropController.cargaListaEstados()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                    </h:selectOneMenu>
+                                    </p:selectOneMenu>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Año adquisicion"/></td>
-                                <td class="dato"><h:inputText  id="textfieldANIOA"  value="#{camionController.anio_adq_cam}">
-                                    </h:inputText>
+                                <td class="dato"><p:inputText  id="textfieldANIOA"  value="#{camionController.anio_adq_cam}">
+                                    </p:inputText>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Costo adquisicion"/></td>
-                                <td class="dato"><h:inputText  id="textfieldCOSTO"  value="#{camionController.costo_adq_cam}">
-                                    </h:inputText>
+                                <td class="dato"><p:inputText  id="textfieldCOSTO"  value="#{camionController.costo_adq_cam}">
+                                    </p:inputText>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Año Elaboracion"/></td>
-                                <td class="dato"><h:inputText  id="textfieldANIOE"  value="#{camionController.anio_elab_cam}">
-                                    </h:inputText>
+                                <td class="dato"><p:inputText  id="textfieldANIOE"  value="#{camionController.anio_elab_cam}">
+                                    </p:inputText>
                                 </td>
                             </tr>
                         </table>
                         <br/>
-                        <h:commandButton action="#{camionController.updateCamion()}" value="Guardar Cambios" id="Guardar"/>
+                        <p:commandButton action="#{camionController.updateCamion()}" ajax="false" value="Guardar Cambios" id="Guardar"/>
                     </center>
                 </p:panel>
             </h:form>

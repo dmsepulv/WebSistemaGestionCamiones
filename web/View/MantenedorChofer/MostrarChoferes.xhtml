@@ -11,6 +11,19 @@
             <h:form>
                 <p:panel>
                     <center>
+                        <h:outputLabel value="Listado de Choferes " styleClass="tittleContent"/>
+                        <br/>
+                        <br/>
+                    </center>
+                    <div class="filtro">
+                        <h:outputLabel value="Filtro: "/>
+                        <p:selectOneMenu value="#{camionController.estado_cam}">
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
+                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                        </p:selectOneMenu>
+                    </div>    
+                    <br/>
+                    <center>
                         <h:dataTable value="#{choferController.obtenerChoferes()}" 
                                      var="chofer"
                                      styleClass="order-table-hor"
@@ -37,7 +50,6 @@
                                 <f:facet name="header">Experiencia</f:facet>
                                 <h:outputText  value="#{chofer.experienciaCho} años"></h:outputText>
                             </h:column>
-                            
                         </h:dataTable>
                     </center>
                 </p:panel>

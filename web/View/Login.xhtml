@@ -27,14 +27,14 @@
                                 <table>
                                     <tr>
                                         <td><h:outputLabel value="Usuario"/></td>
-                                        <td><h:inputText value="#{login.rut}" onchange="checkRutField(this);"/></td>
+                                        <td><p:inputText value="#{login.rut}" onchange="checkRutField(this);"/></td>
                                     </tr>
                                     <tr>
                                         <td><h:outputLabel value="Password"/></td>
-                                        <td><h:inputSecret value="#{login.password}"/></td>
+                                        <td><p:password value="#{login.password}"/></td>
                                     </tr>
                                 </table>
-                                <h:commandButton action="#{login.validateUser()}" value="Ingresar"/>
+                                <p:commandButton action="#{login.validateUser()}" ajax="false" value="Ingresar"/>
                             </center>
                         </p:panel>
                     </h:form>

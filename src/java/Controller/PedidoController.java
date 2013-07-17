@@ -6,11 +6,13 @@ package Controller;
 
 import Model.Entity.Pedido;
 import Model.Service.PedidoService;
+import Model.Service.RutaService;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.naming.NamingException;
@@ -25,9 +27,18 @@ public class PedidoController {
 
     private @Inject
     PedidoService pedidoService;
-    private int cod_ped;
+    private @Inject
+    RutaService rutaService;
+    @ManagedProperty(value = "#{cliente}")
+    private ClienteController clienteController;
+    @ManagedProperty(value = "#{login}")
+    private LoginController loginController;
+    @ManagedProperty(value = "#{ruta}")
+    private RutaController rutaController;
     private String cod_cli;
-   
+    private int cod_ped;
+    private int cod_com_ini;
+    private int cod_com_dest;
     private String rut_usu;
     private String tipo_ped;
     private int cantidad_ped;
@@ -37,14 +48,6 @@ public class PedidoController {
     private java.util.Date fecha_solicitud_ped;
 
     public PedidoController() {
-    }
-
-    public PedidoService getPedidoService() {
-        return pedidoService;
-    }
-
-    public void setPedidoService(PedidoService pedidoService) {
-        this.pedidoService = pedidoService;
     }
 
     public int getCod_ped() {
@@ -63,7 +66,6 @@ public class PedidoController {
         this.cod_cli = cod_cli;
     }
 
-  
     public String getRut_usu() {
         return rut_usu;
     }
@@ -120,26 +122,94 @@ public class PedidoController {
         this.fecha_solicitud_ped = fecha_solicitud_ped;
     }
 
+    public ClienteController getClienteController() {
+        return clienteController;
+    }
+
+    public void setClienteController(ClienteController clienteController) {
+        this.clienteController = clienteController;
+    }
+
+    public int getCod_com_ini() {
+        return cod_com_ini;
+    }
+
+    public void setCod_com_ini(int cod_com_ini) {
+        this.cod_com_ini = cod_com_ini;
+    }
+
+    public int getCod_com_dest() {
+        return cod_com_dest;
+    }
+
+    public void setCod_com_dest(int cod_com_dest) {
+        this.cod_com_dest = cod_com_dest;
+    }
+
+    public LoginController getLoginController() {
+        return loginController;
+    }
+
+    public void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
+    }
+
+    public PedidoService getPedidoService() {
+        return pedidoService;
+    }
+
+    public void setPedidoService(PedidoService pedidoService) {
+        this.pedidoService = pedidoService;
+    }
+
+    public RutaController getRutaController() {
+        return rutaController;
+    }
+
+    public void setRutaController(RutaController rutaController) {
+        this.rutaController = rutaController;
+    }
+
+    public String cancelarPedido() {
+        clienteController.clean();
+        cod_cli = null;
+        rut_usu = null;
+        tipo_ped = null;
+        cantidad_ped = 0;
+        observacion_ped = null;
+        prioridad_ped = null;
+        fecha_entrega_ped = null;
+        fecha_solicitud_ped = null;
+        return "pedidoCancelado";
+
+    }
+
     public boolean savePedido() {
         boolean transaccionCorrecta = false;
-        try {
-            transaccionCorrecta = pedidoService.guardarPedido(
-                    cod_ped,
-                    cod_cli,
-               
-                    rut_usu,
-                    tipo_ped,
-                    cantidad_ped,
-                    observacion_ped,
-                    prioridad_ped,
-                    fecha_entrega_ped,
-                    fecha_solicitud_ped);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(CamionController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NamingException ex) {
-            Logger.getLogger(CamionController.class.getName()).log(Level.SEVERE, null, ex);
+        if (!clienteController.isClienteEncontrado()) {
+            clienteController.saveCliente();
         }
+        try {
+            int cod_ruta=rutaService.guardarRuta(cod_com_ini, cod_com_dest);
+            if (cod_ruta>-1) {
+                transaccionCorrecta = pedidoService.guardarPedido(
+                        clienteController.getCod_cli(),
+                        loginController.getRut(),
+                        tipo_ped,
+                        cantidad_ped,
+                        observacion_ped,
+                        "ALTA",
+                        fecha_entrega_ped,
+                        fecha_solicitud_ped,
+                        cod_ruta);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PedidoController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NamingException ex) {
+            Logger.getLogger(PedidoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        clienteController.clean();
         return transaccionCorrecta;
     }
 
@@ -148,7 +218,6 @@ public class PedidoController {
         try {
             transaccionCorrecta = pedidoService.actualizarPedido(cod_ped,
                     cod_cli,
-           
                     rut_usu,
                     tipo_ped,
                     cantidad_ped,
@@ -156,7 +225,6 @@ public class PedidoController {
                     prioridad_ped,
                     fecha_entrega_ped,
                     fecha_solicitud_ped);
-
         } catch (SQLException ex) {
             Logger.getLogger(CamionController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NamingException ex) {
@@ -176,10 +244,7 @@ public class PedidoController {
     public String seleccionarPedido(Pedido pedido) {
         Pedido c = pedidoService.seleccionarPedido(pedido.getCod_ped());
         if (c != null) {
-
-
             cod_cli = c.getCod_cli();
-        
             rut_usu = c.getRut_usu();
             tipo_ped = c.getTipo_ped();
             cantidad_ped = c.getCantidad_ped();
@@ -187,7 +252,7 @@ public class PedidoController {
             prioridad_ped = c.getPrioridad_ped();
             fecha_entrega_ped = c.getFecha_entrega_ped();
             fecha_solicitud_ped = c.getFecha_solicitud_ped();
-
+            rutaController.seleccionarCamion(cod_ped);
             return "encontrado";
         } else {
             return "no_encontrado";

@@ -8,7 +8,7 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface">
         <f:view>
-            <h:form>
+            <h:form prependId="false" > 
                 <p:panel>
                     <center>
                         <h:outputLabel value="INGRESAR PEDIDO" styleClass="tittleContent" /> 
@@ -16,153 +16,142 @@
                         <br/>
                     </center>
                     <div>
+                        <f:subview id="panelCliente" rendered="true">
+                            <p:panel >
+                                <f:facet name="header">
+                                    <center>
+                                        <h:outputLabel value="Formulario Cliente" styleClass="tittleContent" /> 
+                                    </center>
+                                </f:facet>
+                                <center>
+                                    <table class="order-table">
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Rut Usuario"/></td>
+                                            <td class="dato">
+                                                <p:inputText value="#{cliente.cod_cli}" onchange="checkRutField(this);" >
+                                                    <f:ajax render="panelCliente" listener="#{cliente.seleccionarClienteParaPedido()}"/>
+                                                </p:inputText>
+                                            </td>
+                                        </tr>    
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Nombre"/></td>
+                                            <td class="dato"><p:inputText id="nombreClientePedido" value="#{cliente.nombre_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                                            <td class="dato"><p:inputText id="apaternoClientePedido" value="#{cliente.apaterno_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                                            <td class="dato"><p:inputText id="amaternoClientePedido" value="#{cliente.amaterno_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Telefono"/></td>
+                                            <td class="dato"><p:inputText value="#{cliente.telefono_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="E-mail"/></td>
+                                            <td class="dato"><p:inputText value="#{cliente.mail_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Dirección"/></td>
+                                            <td class="dato"><p:inputText value="#{cliente.direccion_cli}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="cabecera"><h:outputText value="Comuna"/></td>
+                                            <td class="dato">
+                                                <p:selectOneMenu value="#{cliente.cod_com}" style="width: 97.5%;"> 
+                                                    <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                                   itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                                </p:selectOneMenu></td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </p:panel>
+                        </f:subview>
+                    </div>
+                    <div style="padding-top: 3%">
                         <p:panel>
                             <f:facet name="header">
                                 <center>
-                                    <h:outputLabel value="Formulario Cliente" styleClass="tittleContent" /> 
+                                    <h:outputLabel value="Formulario Carga"/> 
                                 </center>
                             </f:facet>
-                            <center>
-                                <table class="order-table">
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Rut Usuario"/></td>
-                                        <td class="dato">
-                                            <h:inputText  value="#{usuarioController.rutUsu}" >
-                                                <!--  <f:validateRegex pattern="/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}|[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/i"></f:validateRegex> -->
-                                            </h:inputText>
-                                        </td>
-                                    </tr>    
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Nombre"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.nombre_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.apaterno_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Telefono"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.telefono_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="E-mail"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.mail_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Dirección"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.direccion_cli}"/></td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Comuna"/></td>
-                                        <td class="dato"><h:selectOneMenu value="#{cliente.cod_com}">
-                                                <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
-                                                               itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                            </h:selectOneMenu></td>
-                                    </tr>
-                                </table>
-                            </center>
+                            <p:panelGrid styleClass="order-table-pedido">
+                                <p:row>
+                                    <p:column colspan="2" styleClass="cabecera-pedido">
+                                        <h:outputText value="Carga: "/>
+                                    </p:column>
+                                    <p:column colspan="2" styleClass="dato-pedido">
+                                        <p:inputText value="#{pedidoController.tipo_ped}" />
+                                    </p:column>
+                                </p:row>
+                                <p:row><p:column colspan="4"/></p:row>
+                                <p:row>
+                                    <p:column colspan="2" styleClass="cabecera-pedido">
+                                        <h:outputText value="Volumen: "  />
+                                    </p:column>
+                                    <p:column colspan="2" styleClass="dato-pedido">
+                                        <p:inputText value="#{pedidoController.cantidad_ped}" />
+                                        <h:outputText value="m"/><sup>3</sup>
+                                    </p:column>
+                                </p:row>
+                                <p:row><p:column colspan="4"/></p:row>
+                                <p:row>
+                                    <p:column styleClass="cabecera-pedido">
+                                        <h:outputText value="Fecha Carga: "/>
+                                    </p:column>
+                                    <p:column styleClass="dato-pedido">
+                                        <p:calendar value="#{pedidoController.fecha_solicitud_ped}" required="true"/>
+                                    </p:column>
+                                    <p:column styleClass="cabecera-pedido">
+                                        <h:outputText value="Zona Carga: "/>
+                                    </p:column>
+                                    <p:column styleClass="dato-pedido">
+                                        <p:selectOneMenu  value="#{pedidoController.cod_com_ini}">
+                                            <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                </p:row>
+                                <p:row><p:column colspan="4"/></p:row>
+                                <p:row>
+                                    <p:column styleClass="cabecera-pedido">
+                                        <h:outputText value="Fecha Descarga: "/>
+                                    </p:column>
+                                    <p:column styleClass="dato-pedido">
+                                        <p:calendar value="#{pedidoController.fecha_entrega_ped}" />
+                                    </p:column>
+                                    <p:column styleClass="cabecera-pedido">
+                                        <h:outputText value="Zona Descarga: "/>
+                                    </p:column>
+                                    <p:column styleClass="dato-pedido">
+                                        <p:selectOneMenu  value="#{pedidoController.cod_com_dest}">
+                                            <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                </p:row>
+                                <p:row><p:column colspan="4"/></p:row>
+                                <p:row>
+                                    <p:column styleClass="cabecera-pedido">
+                                        <h:outputText value="Observación: "  />
+                                    </p:column>
+                                    <p:column colspan="3" styleClass="dato-pedido">
+                                        <p:inputTextarea rows="5" cols="40" value="#{pedidoController.observacion_ped}" />
+                                    </p:column>
+                                </p:row>    
+                            </p:panelGrid>
                         </p:panel>
+                        <br/>
+                        <center>
+                            <p:commandButton action="#{pedidoController.savePedido()}" type="submit" ajax="false" value="Guardar"/>
+                            <h:outputLabel style="padding-right: 5%" />
+                            <p:commandButton action="#{pedidoController.cancelarPedido()}" type="submit"  ajax="false" value="Cancelar"/>
+                        </center>
                     </div>
-                    <div style="padding-top: 3%">
-                        <p:panel >
-                            <f:facet name="header">
-                                <center>
-                                    <h:outputLabel value="Formulario Carga" styleClass="tittleContent" /> 
-
-                                </center>
-                            </f:facet>
-                            <center>
-                                <table class="order-table">
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Carga: "/></td>
-                                        <td class="dato">
-                                            <h:inputText value="#{pedidoController.tipo_ped}" required="true"/>
-                                        </td>
-                                    </tr>    
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Nombre"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.nombre_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.apaterno_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Telefono"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.telefono_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="E-mail"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.mail_cli}"/></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Dirección"/></td>
-                                        <td class="dato"><h:inputText value="#{cliente.direccion_cli}"/></td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td class="cabecera"><h:outputText value="Comuna"/></td>
-                                        <td class="dato"><h:selectOneMenu value="#{cliente.cod_com}">
-                                                <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
-                                                               itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                            </h:selectOneMenu></td>
-                                    </tr>
-                                </table>
-                            </center>
-                        </p:panel>
-                    </div>
-                    <h1><label> Codigo Cliente</label> </h1>
-                    <p><h:inputText value="#{pedidoController.cod_cli}" required="true">
-                            <f:validateLength minimum="0" maximum="6"/>
-                        </h:inputText>
-                    </p>
-
-                    <h1><label> Rut Usuario </label> </h1>
-                    <p><h:inputText value="#{pedidoController.rut_usu}"/>
-                    </p>
-
-                    <h1><label> Tipo Pedido </label> </h1>
-                    <p><h:inputText value="#{pedidoController.tipo_ped}"/>
-                    </p>
-
-                    <h1><label> Cantidad Pedido </label> </h1>
-                    <p><h:inputText value="#{pedidoController.cantidad_ped}">
-                            <f:validateDoubleRange minimum="0" />
-                        </h:inputText>
-                    </p>
-
-                    <h1><label> Observacion </label></h1>
-                    <p><h:inputText value="#{pedidoController.observacion_ped}"/>
-                    </p>
-
-                    <h1><label> Prioridad </label></h1>
-                    <p><h:inputText value="#{pedidoController.prioridad_ped}"/>
-                    </p>
-                    <h1><label> Fecha Entrega Pedido </label></h1>
-                    <p><h:inputText value="#{pedidoController.fecha_entrega_ped}"/>
-                    </p>
-
-
-                    <h1><label> Fecha Solicitud Pedido </label></h1>
-                    <p>
-                        <h:inputText value="#{pedidoController.fecha_solicitud_ped}"/>
-                    </p>
-                    <center>
-                        <h:commandButton action="#{pedidoController.savePedido()}" value="Guardar" id="Guardar"/>
-                    </center>
                 </p:panel>
-            </h:form>
+            </h:form> 
         </f:view>
     </ui:define>
 </ui:composition>

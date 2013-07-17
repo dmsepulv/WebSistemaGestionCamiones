@@ -9,15 +9,10 @@ import javax.naming.NamingException;
  */
 public interface RutaDao {
 
-    public boolean insertRuta(
-            int cod_ruta,
+    public int insertRuta(
             int cod_com_ini,
-            int cod_com_dest,
-            float t_prom_ruta,
-            float dist_prom_ruta) throws SQLException, NamingException;
+            int cod_com_dest) throws SQLException, NamingException;
             
-            
-
     public Object selectRuta(int cod_ruta) throws SQLException, NamingException;
 
     public Object selectAllRuta() throws SQLException, NamingException;

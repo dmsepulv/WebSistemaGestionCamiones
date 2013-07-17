@@ -18,28 +18,22 @@
                             <tr>
                                 <td class="cabecera"><h1><label> Rut Usuario</label></h1></td>
                                 <td class="dato">
-                                    <h:inputText  value="#{usuarioController.rutUsu}" >
+                                    <p:inputText  value="#{usuarioController.rutUsu}" >
                                         <!--  <f:validateRegex pattern="/^[a-z]{2}[\.\- ]?[0-9]{2}[\.\- ]?[0-9]{2}|[b-d,f-h,j-l,p,r-t,v-z]{2}[\-\. ]?[b-d,f-h,j-l,p,r-t,v-z]{2}[\.\- ]?[0-9]{2}$/i"></f:validateRegex> -->
-                                    </h:inputText>
+                                    </p:inputText>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h1><label> Password</label></h1></td>
                                 <td class="dato">   
-                                    <label for="textfield"></label>
-                                    <h:inputText value="#{usuarioController.passwordUsu}" >
-                                    </h:inputText>
-                        
+                                    <p:inputText value="#{usuarioController.passwordUsu}" />
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h1><label> Nombre </label></h1> </td>
                                 <td class="dato">
                                     <label for="textfield"></label>
-                                    <h:inputText  value="#{usuarioController.nombreUsu}" required="true">
-                                      
-
-                                    </h:inputText>
+                                    <p:inputText  value="#{usuarioController.nombreUsu}" required="true"/>
                                     <h:message for="textfieldESTADO" style="color:red" />
                                 </td>
                             </tr>
@@ -47,9 +41,7 @@
                                 <td class="cabecera"><h1><label> Apellido Paterno </label> </h1></td>
                                 <td class="dato">
                                     <label for="textfield"></label>
-                                    <h:inputText value="#{usuarioController.apaternoUsu}"  required="true">
-                              
-                                    </h:inputText>
+                                    <p:inputText value="#{usuarioController.apaternoUsu}"  required="true"/>
                                     <h:message for="textfieldANIOA" style="color:red"/>
                                 </td>
                             </tr>
@@ -57,19 +49,18 @@
                                 <td class="cabecera"><h1><label> Apellido Materno </label> </h1></td>
                                 <td class="dato">
                                     <label for="textfield"></label>
-                                    <h:inputText  value="#{usuarioController.amaternoUsu}">
+                                    <p:inputText  value="#{usuarioController.amaternoUsu}">
                       
                                         <h:message for="textfieldCAPACIDAD" style="color:red" />
-                                    </h:inputText>
+                                    </p:inputText>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h1><label> E-Mail </label></h1></td>
                                 <td class="dato">
-                                    <label for="textfield"></label>
-                                    <h:inputText value="#{usuarioController.emailUsu}" >
+                                    <p:inputText value="#{usuarioController.emailUsu}" >
                                 
-                                    </h:inputText>
+                                    </p:inputText>
                                     <h:message for="textfieldANIOE" style="color:red"/>
                                 </td>
                             </tr>
@@ -77,15 +68,15 @@
                              <tr>
                                 <td class="cabecera"><h1><label> Rol </label></h1></td>
                                 <td class="dato">
-                                    <h:selectOneMenu value="#{usuarioController.rolUsu}" style="width: 97.5%;">
+                                    <p:selectOneMenu value="#{usuarioController.rolUsu}" style="width: 97.5%;">
                                         <f:selectItems value="#{listaDropController.cargaListaRolUsuario()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                    </h:selectOneMenu>
+                                    </p:selectOneMenu>
                                 </td>
                             </tr>
                         </table>
                         <br/>
-                        <h:commandButton action="#{usuarioController.saveUsuario()}" value="Guardar"/>
+                        <p:commandButton action="#{usuarioController.saveUsuario()}" ajax="false" value="Guardar"/>
                     </center>
                 </p:panel>
             </h:form>

@@ -2,38 +2,38 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="View/MantenedorCamion/MostrarCamiones.xhtml" x="1584" y="731" zoom="true"/>
         <Node id="View/MantenedorChofer/SeleccionPedido.xhtml" x="1241" y="196" zoom="true"/>
+        <Node id="View/MantenedorCamion/MostrarCamiones.xhtml" x="1584" y="731" zoom="true"/>
         <Node id="View/MantenedorPedido/EliminarPedido.xhtml" x="1598" y="1133" zoom="true"/>
         <Node id="View/MantenedorPedido/MostrarTodos.xhtml" x="1150" y="450" zoom="true"/>
         <Node id="View/MantenedorUsuario/SeleccionUsuario.xhtml" x="2150" y="150" zoom="true"/>
         <Node id="View/MantenedorUsuario/*" x="1923" y="539" zoom="true"/>
         <Node id="View/Login.xhtml" x="146" y="188" zoom="true"/>
         <Node id="View/MantenedorCliente/EliminarCliente.xhtml" x="650" y="750" zoom="true"/>
-        <Node id="View/MantenedorPedido/*" x="1150" y="300" zoom="true"/>
         <Node id="View/MantenedorPedido/EditarPedido.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="View/MantenedorPedido/*" x="1150" y="300" zoom="true"/>
         <Node id="View/MantenedorCliente/MostrarCliente.xhtml" x="935" y="1158" zoom="true"/>
         <Node id="View/MantenedorCliente/InsertarCliente.xhtml" x="1340" y="992" zoom="true"/>
-        <Node id="View/MantenedorPedido/InsertarPedido.xhtml" x="1606" y="1202" zoom="true"/>
-        <Node id="View/MantenedorCliente/*" x="763" y="527" zoom="true"/>
         <Node id="View/Utils/MainMenu.xhtml" x="650" y="450" zoom="true"/>
         <Node id="View/MantenedorChofer/InsertarChofer.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="View/MantenedorCliente/*" x="763" y="527" zoom="true"/>
         <Node id="View/Home.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="View/MantenedorPedido/InsertarPedido.xhtml" x="1606" y="1202" zoom="true"/>
         <Node id="View/MantenedorCamion/SeleccionCamion.xhtml" x="1630" y="910" zoom="true"/>
         <Node id="View/MantenedorCamion/InsertarCamion.xhtml" x="1150" y="150" zoom="true"/>
         <Node id="View/Error.xhtml" x="900" y="300" zoom="true"/>
         <Node id="View/*" x="1133" y="805" zoom="true"/>
         <Node id="View/MantenedorCamion/*" x="1708" y="835" zoom="true"/>
         <Node id="View/MantenedorUsuario/EditarUsuario.xhtml" x="1600" y="1233" zoom="true"/>
-        <Node id="View/MantenedorPedido/SeleccionPedido.xhtml" x="1611" y="1166" zoom="true"/>
         <Node id="View/MantenedorCliente/MostrarClientes.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="View/MantenedorPedido/SeleccionPedido.xhtml" x="1611" y="1166" zoom="true"/>
         <Node id="View/MantenedorChofer/DeleteChofer.xhtml" x="401" y="1142" zoom="true"/>
         <Node id="View/Administracion.xhtml" x="871" y="1012" zoom="true"/>
         <Node id="View/MantenedorCliente/EditarCliente.xhtml" x="400" y="600" zoom="true"/>
         <Node id="View/MantenedorUsuario/EliminarUsuario.xhtml" x="150" y="600" zoom="true"/>
         <Node id="View/MantenedorCamion/EditarCamion.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="View/MantenedorUsuario/MostrarUsuario.xhtml" x="1666" y="143" zoom="true"/>
         <Node id="View/MantenedorChofer/MostrarPedidos.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="View/MantenedorUsuario/MostrarUsuario.xhtml" x="1666" y="143" zoom="true"/>
         <Node id="View/MantenedorChofer/MostrarChoferes.xhtml" x="84" y="838" zoom="true"/>
         <Node id="View/MantenedorChofer/*" x="113" y="721" zoom="true"/>
         <Node id="View/Utils/MenuVerticalAdmin.xhtml" x="1400" y="150" zoom="true"/>

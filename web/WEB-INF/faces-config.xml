@@ -63,7 +63,7 @@
         </navigation-case> 
         <navigation-case>
             <from-outcome>MostrarPedido</from-outcome>
-            <to-view-id>/View/MantenedorPedido/MostrarPedido.xhtml</to-view-id>
+            <to-view-id>/View/MantenedorPedido/MostrarPedidos.xhtml</to-view-id>
         </navigation-case> 
         <navigation-case>
             <from-outcome>IngresarPedido</from-outcome>

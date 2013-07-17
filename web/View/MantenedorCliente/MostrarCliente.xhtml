@@ -3,58 +3,54 @@
 <ui:composition template="./../Administracion.xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface"> 
         <f:view>
-            <h:form>  
-                <center>
-                    <h:dataTable value="#{cliente.obtenerCliente()}" 
-                                 var="client"
-                                 styleClass="order-table-hor"
-                                 headerClass="order-table-header-hor"
-                                 rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
+            <h:form> 
+                <p:panel>
+                    <center>
+                        <h:outputLabel value="Listado de Clientes" styleClass="tittleContent"/>
+                        <br/>
+                        <br/>
+                    </center>
+                    <div class="filtro">
+                        <h:outputLabel value="Filtro: "/>
+                        <h:selectOneMenu value="#{camionController.estado_cam}">
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
+                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                        </h:selectOneMenu>
+                    </div>    
+                    <br/>
+                    <center>
+                        <h:dataTable value="#{cliente.obtenerCliente()}" 
+                                     var="client"
+                                     styleClass="order-table-hor"
+                                     headerClass="order-table-header-hor"
+                                     rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
 
-                        <h:column>
-                            <f:facet name="header">Rut Cliente</f:facet>
-                            <h:commandLink action="#{cliente.seleccionarCliente(client)}" value="#{client.codCli}"/>
-                        </h:column>
+                            <h:column>
+                                <f:facet name="header">Rut Cliente</f:facet>
+                                <h:commandLink action="#{cliente.seleccionarCliente(cliente)}" value="#{client.codCli}"/>
+                            </h:column>
 
-                        <h:column>
-                            <f:facet name="header">Nombre</f:facet>
-                                #{client.nombreCli}
-                        </h:column>
+                            <h:column>
+                                <f:facet name="header">Nombre Completo</f:facet>
+                                    #{client.toString()}
+                            </h:column>
 
-                        <h:column>
-                            <f:facet name="header">Apellido Paterno</f:facet>
-                                #{client.apaternoCli}
-                        </h:column>
+                            <h:column>
+                                <f:facet name="header">Telefono</f:facet>
+                                    #{client.telefonoCli}
+                            </h:column>
 
-                        <h:column>
-                            <f:facet name="header">Apellido Materno</f:facet>
-                                #{client.amaternoCli}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Telefono</f:facet>
-                                #{client.telefonoCli}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">E-mail</f:facet>
-                                #{client.mailCli}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Dirección</f:facet>
-                                #{client.direccionCli}
-                        </h:column>
-
-                        <h:column>
-                            <f:facet name="header">Comuna</f:facet>
-                                #{client.comuna.nombreCom}
-                        </h:column>
-                    </h:dataTable>
-                </center>
+                            <h:column>
+                                <f:facet name="header">E-mail</f:facet>
+                                    #{client.mailCli}
+                            </h:column>
+                        </h:dataTable>
+                    </center>
+                </p:panel>
             </h:form>
         </f:view>
     </ui:define>

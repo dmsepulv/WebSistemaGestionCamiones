@@ -4,78 +4,78 @@
 <ui:composition template="./../Administracion.xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface">
         <f:view>
-            <h:form id="formIngresoCamion">
+            <h:form>
+                <p:panel>
+                    <center>
+                        <h1><label> INGRESAR CLIENTE </label> </h1>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h1><label>Rut Cliente</label></h1></td>
+                                <td class="dato">
+                                    <p:inputText converter="#{String}" value="#{cliente.cod_cli}" required="true" requiredMessage="no vacio">
+                                        <f:validateLength minimum="0" maximum="12" />
+                                    </p:inputText>
+                                    <p:message for="textfieldCodCliente"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>Nombre</label></h1></td>
+                                <td class="dato">   
+                                    <p:inputText converter="#{String}" value="#{cliente.nombre_cli}" required="true" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>Apellido Paterno</label></h1> </td>
+                                <td class="dato">
+                                    <p:inputText converter="#{String}" value="#{cliente.apaterno_cli}" required="true" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>Apellido Materno</label> </h1></td>
+                                <td class="dato">
+                                    <p:inputText value="#{cliente.amaterno_cli}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>Telefono</label> </h1></td>
+                                <td class="dato">
+                                    <p:inputText converter="#{String}" value="#{cliente.telefono_cli}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>E-mail</label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <p:inputText value="#{cliente.mail_cli}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h1><label>Dirección</label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <p:inputText value="#{cliente.direccion_cli}"/>
+                                </td>
+                            </tr>
 
-                <center>
-                    <h1><label> INGRESAR CLIENTE </label> </h1>
-                    <table class="order-table">
-                        <tr>
-                            <td class="cabecera"><h1><label>Rut Cliente</label></h1></td>
-                            <td class="dato">
-                                <label for="textfield"></label>
-                                <h:inputText converter="#{String}" value="#{cliente.cod_cli}" id="textfieldCodCliente" required="true" requiredMessage="no vacio">
-                                    <f:validateLength minimum="0" maximum="12" />
-                                </h:inputText>
-                                <h:message for="textfieldCodCliente" title="hola"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>Nombre</label></h1></td>
-                            <td class="dato">   
-                                <h:inputText converter="#{String}" value="#{cliente.nombre_cli}" required="true" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>Apellido Paterno</label></h1> </td>
-                            <td class="dato">
-                                <h:inputText converter="#{String}" value="#{cliente.apaterno_cli}" id="textfieldAPaterno" required="true" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>Apellido Materno</label> </h1></td>
-                            <td class="dato">
-                                <h:inputText value="#{cliente.amaterno_cli}" id="textfieldAMaterno"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>Telefono</label> </h1></td>
-                            <td class="dato">
-                                <h:inputText converter="#{String}" value="#{cliente.telefono_cli}" id="textfieldFono" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>E-mail</label></h1></td>
-                            <td class="dato">
-                                <label for="textfield"></label>
-                                <h:inputText value="#{cliente.mail_cli}" id="textfieldEmail"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h1><label>Dirección</label></h1></td>
-                            <td class="dato">
-                                <label for="textfield"></label>
-                                <h:inputText value="#{cliente.direccion_cli}" id="textfieldDireccion"/>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="cabecera"><h1><label>Comuna</label></h1></td>
-                            <td class="dato">
-                                <label for="textfield"></label>
-                                <h:selectOneMenu id="textfieldCAPACIDAD" value="#{cliente.cod_com}">
-                                    <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
-                                                   itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                </h:selectOneMenu>
-                            </td>
-                        </tr>
-                    </table>
-                    <br/>
-                    <h:commandButton action="#{cliente.saveCliente()}" value="Guardar" id="Guardar"/>
-                </center>
-
+                            <tr>
+                                <td class="cabecera"><h1><label>Comuna</label></h1></td>
+                                <td class="dato">
+                                    <label for="textfield"></label>
+                                    <p:selectOneMenu value="#{cliente.cod_com}">
+                                        <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                       itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <p:commandButton action="#{cliente.saveCliente()}" ajax="false" value="Guardar" id="Guardar"/>
+                    </center>
+                </p:panel>
             </h:form>
         </f:view>
     </ui:define>

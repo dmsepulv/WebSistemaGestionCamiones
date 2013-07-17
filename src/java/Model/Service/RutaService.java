@@ -6,7 +6,7 @@ package Model.Service;
 
 import Model.Entity.Ruta;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.List;
 import javax.naming.NamingException;
 
 /**
@@ -15,15 +15,13 @@ import javax.naming.NamingException;
  */
 public interface RutaService {
     
-    public boolean guardarRuta(int cod_ruta,
+    public int guardarRuta(
             int cod_com_ini,
-            int cod_com_dest,
-            float t_prom_ruta,
-            float dist_prom_ruta) throws SQLException, NamingException;
+            int cod_com_dest) throws SQLException, NamingException;
     
     public Ruta seleccionarRuta(int cod_ped);
     
-    public LinkedList<Ruta> seleccionarTodasLasRutas();
+    public List<Ruta> seleccionarTodasLasRutas();
     
     public boolean actualizarRuta(int cod_ruta,
             int cod_com_ini,

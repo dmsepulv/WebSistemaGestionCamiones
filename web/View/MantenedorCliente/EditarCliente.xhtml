@@ -4,56 +4,57 @@
 <ui:composition template="./../Administracion.xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface">            
         <f:view>
             <h:form>
-                <h3><h:outputText> ACTUALIZAR CLIENTE</h:outputText>> </h3>
-                <center>
-                    <table class="order-table">
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
-                            <td class="dato"><h:outputText value="#{cliente.cod_cli}"/>
-                                <h:inputHidden value="#{cliente.cod_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Nombre"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.nombre_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.apaterno_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Telefono"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.telefono_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="E-mail"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.mail_cli}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Dirección"/></td>
-                            <td class="dato"><h:inputText value="#{cliente.direccion_cli}"/></td>
-                        </tr>
+                <p:panel>
+                    <h3><h:outputText> ACTUALIZAR CLIENTE</h:outputText>> </h3>
+                    <center>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
+                                <td class="dato"><h:outputText value="#{cliente.cod_cli}"/>
+                                    <h:inputHidden value="#{cliente.cod_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Nombre"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.nombre_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.apaterno_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                                <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Telefono"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.telefono_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="E-mail"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.mail_cli}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Dirección"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.direccion_cli}"/></td>
+                            </tr>
 
 
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Comuna"/></td>
-                            <td class="dato"><h:selectOneMenu id="textfieldCAPACIDAD" value="#{cliente.cod_com}">
-                                    <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
-                                                   itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                </h:selectOneMenu></td>
-                        </tr>
-
-
-                    </table>
-                    <h:commandButton action="#{cliente.updateCliente()}" value="Guardar Cambios" id="Guardar"/>
-                </center>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Comuna"/></td>
+                                <td class="dato"><p:selectOneMenu value="#{cliente.cod_com}">
+                                        <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
+                                                       itemLabel="#{ca.label}" itemValue="#{ca.value}" />
+                                    </p:selectOneMenu></td>
+                            </tr>
+                        </table>
+                        <p:commandButton action="#{cliente.updateCliente()}" ajax="false" value="Guardar Cambios" id="Guardar"/>
+                    </center>
+                </p:panel>
             </h:form>
         </f:view>
     </ui:define>

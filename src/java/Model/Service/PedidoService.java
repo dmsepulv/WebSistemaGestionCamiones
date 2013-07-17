@@ -16,7 +16,7 @@ import javax.naming.NamingException;
  */
 public interface PedidoService {
     
-    public boolean guardarPedido(int cod_ped,
+    public boolean guardarPedido(
             String cod_cli,
             String rut_usu,
             String tipo_ped,
@@ -24,7 +24,8 @@ public interface PedidoService {
             String observacion_ped,
             String prioridad_ped,
             Date fecha_entrega_ped,
-            Date fecha_solicitud_ped) throws SQLException, NamingException;
+            Date fecha_solicitud_ped,
+            int cod_ruta) throws SQLException, NamingException;
     
     public Pedido seleccionarPedido(int cod_ped);
     

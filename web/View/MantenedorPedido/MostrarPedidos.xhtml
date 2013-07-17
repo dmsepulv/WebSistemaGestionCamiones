@@ -7,45 +7,41 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface"> 
         <f:view>
-            <h:form >  
+            <h:form>  
                 <p:panel>
                     <center>
-                        <h:outputLabel value="Usuarios Registrados" styleClass="tittleContent"/>
+                        <h:outputLabel value="Listado de Pedidos" styleClass="tittleContent"/>
                         <br/>
                         <br/>
                     </center>
-                    <div class="filtro">
-                        <h:outputLabel value="Filtro: "/>
-                        <h:selectOneMenu value="#{usuarioController.estadoUsu}">
-                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroUsuario()}" var="ca"
-                                           itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                            <f:ajax render="dataTableUsuario"/>
-                        </h:selectOneMenu>
-                    </div>    
                     <br/>
                     <center>
-                        <h:dataTable value="#{usuarioController.obtenerUsuariosPorEstado()}" 
-                                     var="c"
-                                     id="dataTableUsuario"
+                        <h:dataTable value="#{pedidoController.obtenerPedidos()}" 
+                                     var="p"
                                      styleClass="order-table-hor"
                                      headerClass="order-table-header-hor"
                                      rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
                             <h:column>
-                                <f:facet name="header">Rut Usuario</f:facet>
-                                <h:commandLink action="#{usuarioController.seleccionarUsuario(c)}" value="#{c.rutUsu}"/>
+                                <f:facet name="header">Codigo Pedido</f:facet>
+                                <h:commandLink action="#{pedidoController.seleccionarPedido(p)}"> 
+                                    <h:outputLabel value="Pedido N° " />
+                                    <h:outputLabel value="#{p.cod_ped}" />  
+                                </h:commandLink>
                             </h:column>
 
                             <h:column>
-                                <f:facet name="header">Nombre Completo</f:facet>
-                                    #{c.toString()}
+                                <f:facet name="header">Tipo Pedido</f:facet>
+                                    #{p.tipo_ped}
                             </h:column>
+
                             <h:column>
-                                <f:facet name="header">Rol</f:facet>
-                                    #{c.rolUsu}
+                                <f:facet name="header">Cantidad Pedido</f:facet>
+                                    #{p.cantidad_ped}
                             </h:column>
+
                             <h:column>
-                                <f:facet name="header">Estado</f:facet>
-                                    #{c.estadoUsu}
+                                <f:facet name="header">Prioridad</f:facet>
+                                    #{p.prioridad_ped}
                             </h:column>
                         </h:dataTable>
                     </center>

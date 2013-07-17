@@ -21,8 +21,8 @@ import javax.sql.DataSource;
  */
 public class PedidoDaoImpl extends Conexion implements PedidoDao {
 
+    @Override
     public boolean insertPedido(
-            int cod_ped,
             String cod_cli,
             String rut_usu,
             String tipo_ped,
@@ -30,7 +30,8 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
             String observacion_ped,
             String prioridad_ped,
             Date fecha_entrega_ped,
-            Date fecha_solicitud_ped) throws SQLException, NamingException {
+            Date fecha_solicitud_ped,
+            int cod_ruta) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
         DataSource sgc_connection = getSgc_connection();
@@ -43,36 +44,34 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         }
         StringBuilder stb = new StringBuilder();
         stb.append("INSERT INTO \"PEDIDO\"");
-        stb.append("       (cod_ped , ");
-        stb.append("       cod_cli , ");
-
+        stb.append("       (cod_cli , ");
         stb.append("       rut_usu , ");
         stb.append("       tipo_ped , ");
         stb.append("       cantidad_ped , ");
         stb.append("       observacion_ped,  ");
         stb.append("       prioridad_ped,  ");
         stb.append("       fecha_entrega_ped,  ");
-        stb.append("       fecha_solicitud_ped)  ");
-        stb.append(" values ( ? , ? , ? , ? , ? , ? , ? , ? , ?) ;");
+        stb.append("       fecha_solicitud_ped,  ");
+        stb.append("       cod_ruta)  ");
+        stb.append(" values ( ? , ? , ? , ? , ? , ? , ? , ?, ?) ;");
         PreparedStatement query = conn.prepareStatement(stb.toString());
 
-        query.setInt(1, cod_ped);
-        query.setString(2, cod_cli);
-
-        query.setString(3, rut_usu);
-        query.setString(4, tipo_ped);
-        query.setInt(5, cantidad_ped);
-        query.setString(6, observacion_ped);
-        query.setString(7, prioridad_ped);
-        query.setDate(8, new java.sql.Date(fecha_entrega_ped.getTime()));
-        query.setDate(9, new java.sql.Date(fecha_solicitud_ped.getTime()));
-
+        query.setString(1, cod_cli);
+        query.setString(2, rut_usu);
+        query.setString(3, tipo_ped);
+        query.setInt(4, cantidad_ped);
+        query.setString(5, observacion_ped);
+        query.setString(6, prioridad_ped);
+        query.setDate(7,new java.sql.Date(fecha_entrega_ped.getTime()));
+        query.setDate(8, new java.sql.Date(fecha_solicitud_ped.getTime()));
+        query.setInt(9, cod_ruta);
         query.executeUpdate();
 
         transaccionCorrecta = true;
         return transaccionCorrecta;
     }
 
+    @Override
     public Object selectPedido(int cod_ped) throws SQLException, NamingException {
 
         LinkedList<Object> datosPedido = null;
@@ -121,6 +120,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         return datosPedido;
     }
 
+    @Override
     public Object selectAllPedido() throws SQLException, NamingException {
         LinkedList<Object> pedidos = null;
 
@@ -136,7 +136,6 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         StringBuilder stb = new StringBuilder();
         stb.append(" SELECT cod_ped , ");
         stb.append("       cod_cli , ");
-        
         stb.append("       rut_usu , ");
         stb.append("       tipo_ped , ");
         stb.append("       cantidad_ped , ");
@@ -152,9 +151,8 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
             pedidos = new LinkedList<Object>();
             do {
                 ArrayList<Object> datosPedido = new ArrayList<Object>();
-                datosPedido.add(rs.getString("cod_ped"));
+                datosPedido.add(rs.getInt("cod_ped"));
                 datosPedido.add(rs.getString("cod_cli"));
-    
                 datosPedido.add(rs.getString("rut_usu"));
                 datosPedido.add(rs.getString("tipo_ped"));
                 datosPedido.add(rs.getInt("cantidad_ped"));
@@ -171,10 +169,10 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         return pedidos;
     }
 
+    @Override
     public boolean updatePedido(
             int cod_ped,
             String cod_cli,
-          
             String rut_usu,
             String tipo_ped,
             int cantidad_ped,
@@ -225,6 +223,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
         return transaccionCorrecta;
     }
 
+    @Override
     public boolean deletePedido(int cod_ped) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;

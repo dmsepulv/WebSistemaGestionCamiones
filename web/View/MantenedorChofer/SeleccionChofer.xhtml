@@ -4,66 +4,69 @@
 <ui:composition template="./../Administracion.xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface">
         <f:view>
             <h:form>
-                <h3><label> INGRESAR CHOFER </label> </h3>
-                <center>
-                    <table class="order-table">
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Rut Chofer"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.rut_cho}"/>
-                                <h:inputHidden value="#{choferController.rut_cho}"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Nombre Chofer"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.nombre_cho.concat(choferController.apaterno_cho)}"/>
-                                <h:inputHidden value="#{choferController.nombre_cho}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Fecha de Nacimiento"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.fnac_cho}">
-                                    <f:convertDateTime type="date" dateStyle="short" />
-                                </h:outputText>
-                                <h:inputHidden value="#{choferController.fnac_cho}">
-                                    <f:convertDateTime type="date" dateStyle="short" />
-                                </h:inputHidden></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.amaterno_cho}"/>
-                                <h:inputHidden value="#{choferController.amaterno_cho}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Años de Experiencia"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.experiencia_cho}"/>
-                                <h:inputHidden value="#{choferController.experiencia_cho}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Tipo de Licencia"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.tipo_licencia_cho}"/>
-                                <h:inputHidden value="#{choferController.tipo_licencia_cho}"/></td>
-                        </tr>
-                        <tr>
-                            <td class="cabecera"><h:outputText value="Fecha Expiracion Licencia"/></td>
-                            <td class="dato"><h:outputText value="#{choferController.expir_licencia_cho}"> 
-                                    <f:convertDateTime type="date" dateStyle="short" />
-                                </h:outputText>
-                                <h:inputHidden value="#{choferController.expir_licencia_cho}">
-                                    <f:convertDateTime type="date" dateStyle="short" />
-                                </h:inputHidden></td>
-                        </tr>
-                    </table>
-                </center>
-                <br/>
-                <center>
-                    <h:commandButton action="EditarChofer" value="Editar"/>
-                    <h:outputText style="width:20px;"/>
-                    <h:commandButton action="DeleteChofer" value="Eliminar"/>
-                </center>
-                <br/>
+                <p:panel>
+                    <h3><label> INGRESAR CHOFER </label> </h3>
+                    <center>
+                        <table class="order-table">
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Rut Chofer"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.rut_cho}"/>
+                                    <h:inputHidden value="#{choferController.rut_cho}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Nombre Chofer"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.nombre_cho.concat(choferController.apaterno_cho)}"/>
+                                    <h:inputHidden value="#{choferController.nombre_cho}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Fecha de Nacimiento"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.fnac_cho}">
+                                        <f:convertDateTime type="date" dateStyle="short" />
+                                    </h:outputText>
+                                    <h:inputHidden value="#{choferController.fnac_cho}">
+                                        <f:convertDateTime type="date" dateStyle="short" />
+                                    </h:inputHidden></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.amaterno_cho}"/>
+                                    <h:inputHidden value="#{choferController.amaterno_cho}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Años de Experiencia"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.experiencia_cho}"/>
+                                    <h:inputHidden value="#{choferController.experiencia_cho}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Tipo de Licencia"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.tipo_licencia_cho}"/>
+                                    <h:inputHidden value="#{choferController.tipo_licencia_cho}"/></td>
+                            </tr>
+                            <tr>
+                                <td class="cabecera"><h:outputText value="Fecha Expiracion Licencia"/></td>
+                                <td class="dato"><h:outputText value="#{choferController.expir_licencia_cho}"> 
+                                        <f:convertDateTime type="date" dateStyle="short" />
+                                    </h:outputText>
+                                    <h:inputHidden value="#{choferController.expir_licencia_cho}">
+                                        <f:convertDateTime type="date" dateStyle="short" />
+                                    </h:inputHidden></td>
+                            </tr>
+                        </table>
+                    </center>
+                    <br/>
+                    <center>
+                        <p:commandButton action="EditarChofer" ajax="false" value="Editar"/>
+                        <h:outputLabel style="padding-right: 5%" />
+                        <p:commandButton action="DeleteChofer" ajax="false" value="Eliminar"/>
+                    </center>
+                    <br/>
+                </p:panel>
             </h:form>
         </f:view>
     </ui:define>

@@ -9,6 +9,8 @@ public class Ruta {
     private int cod_ruta;
     private int cod_com_ini;
     private int cod_com_dest;
+    private String inicio;
+    private String destino;
     private float t_prom_ruta;
     private float dist_prom_ruta;
     
@@ -49,6 +51,22 @@ public class Ruta {
 
     public float getT_prom_ruta() {
         return t_prom_ruta;
+    }
+
+    public String getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(String inicio) {
+        this.inicio = inicio;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     public void setT_prom_ruta(float t_prom_ruta) {

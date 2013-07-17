@@ -7,45 +7,45 @@
                 xmlns:p="http://primefaces.org/ui">
     <ui:define name="contentInterface"> 
         <f:view>
-            <h:form >  
+            <h:form>  
                 <p:panel>
                     <center>
-                        <h:outputLabel value="Usuarios Registrados" styleClass="tittleContent"/>
+                        <h:outputLabel value="Listado de Camiones" styleClass="tittleContent"/>
                         <br/>
                         <br/>
                     </center>
                     <div class="filtro">
                         <h:outputLabel value="Filtro: "/>
-                        <h:selectOneMenu value="#{usuarioController.estadoUsu}">
-                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroUsuario()}" var="ca"
+                        <h:selectOneMenu value="#{camionController.estado_cam}">
+                            <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
                                            itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                            <f:ajax render="dataTableUsuario"/>
                         </h:selectOneMenu>
                     </div>    
                     <br/>
                     <center>
-                        <h:dataTable value="#{usuarioController.obtenerUsuariosPorEstado()}" 
+                        <h:dataTable value="#{camionController.obtenerCamiones()}" 
                                      var="c"
-                                     id="dataTableUsuario"
                                      styleClass="order-table-hor"
                                      headerClass="order-table-header-hor"
                                      rowClasses="order-table-odd-row-hor,order-table-even-row-hor">
                             <h:column>
-                                <f:facet name="header">Rut Usuario</f:facet>
-                                <h:commandLink action="#{usuarioController.seleccionarUsuario(c)}" value="#{c.rutUsu}"/>
+                                <f:facet name="header">Patente</f:facet>
+                                <h:commandLink action="#{camionController.seleccionarCamion(c)}" value="#{c.patenteCam}" style="text-transform: uppercase;"/>
                             </h:column>
 
                             <h:column>
-                                <f:facet name="header">Nombre Completo</f:facet>
-                                    #{c.toString()}
+                                <f:facet name="header">Capacidad</f:facet>
+                                #{c.capacidadCam} m<sup>3</sup>
                             </h:column>
+
                             <h:column>
-                                <f:facet name="header">Rol</f:facet>
-                                    #{c.rolUsu}
+                                <f:facet name="header">Año Elaboración</f:facet>
+                                    #{c.anioElabCam}
                             </h:column>
+
                             <h:column>
                                 <f:facet name="header">Estado</f:facet>
-                                    #{c.estadoUsu}
+                                    #{c.estadoCam}
                             </h:column>
                         </h:dataTable>
                     </center>
