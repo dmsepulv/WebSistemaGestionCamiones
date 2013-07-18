@@ -34,11 +34,8 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             String rolUsu) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -82,11 +79,7 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
 
         LinkedList<Object> datosUsuario = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -132,11 +125,7 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
 
         LinkedList<Object> usuarios = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -188,11 +177,7 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             String rolUsu) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -229,11 +214,8 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
     public boolean deleteUsuario(String rutUsu) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -266,11 +248,8 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
     @Override
     public boolean unableUsuario(String rutUsu) throws SQLException, NamingException {
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -297,11 +276,7 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
     public Object selectUsuariosPorEstado(String estadoUsuario) throws SQLException, NamingException {
         LinkedList<Object> usuarios = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }

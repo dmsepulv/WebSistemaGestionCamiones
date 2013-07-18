@@ -34,11 +34,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
             String direccionCli) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -82,11 +78,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
 
         LinkedList<Object> datosCliente = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -133,11 +125,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
 
         LinkedList<Object> usuarios = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -191,11 +179,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
             String direccionCli) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -234,11 +218,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
     public boolean deleteCliente(String codCli) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -261,11 +241,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
     @Override
     public boolean unableCliente(String codCli) throws SQLException, NamingException {
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }

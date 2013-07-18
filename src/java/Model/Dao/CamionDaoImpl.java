@@ -29,11 +29,7 @@ public class CamionDaoImpl extends Conexion implements CamionDao {
             int anio_elab_cam) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -64,12 +60,8 @@ public class CamionDaoImpl extends Conexion implements CamionDao {
     public Object selectCamion(String patente_cam) throws SQLException, NamingException {
 
         LinkedList<Object> datosCamion = null;
-
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -106,12 +98,8 @@ public class CamionDaoImpl extends Conexion implements CamionDao {
     @Override
     public Object selectAllCamion() throws SQLException, NamingException {
         LinkedList<Object> camiones = null;
-
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -154,11 +142,7 @@ public class CamionDaoImpl extends Conexion implements CamionDao {
             int costo_adq_cam,
             int anio_elab_cam) throws SQLException, NamingException {
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -188,11 +172,7 @@ public class CamionDaoImpl extends Conexion implements CamionDao {
     public boolean deleteCamion(String patente_cam) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }

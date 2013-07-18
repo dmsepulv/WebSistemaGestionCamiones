@@ -22,11 +22,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
             int cod_com_dest) throws SQLException, NamingException {
         
         int transaccionCorrecta = -1;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -83,12 +79,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
     public Object selectRuta(int cod_ruta) throws SQLException, NamingException {
 
         LinkedList<Object> datosRuta = null;
-
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -124,11 +115,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
     public Object selectAllRuta() throws SQLException, NamingException {
         LinkedList<Object> rutas = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -170,11 +157,8 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
             float t_prom_ruta,
             float dist_prom_ruta) throws SQLException, NamingException {
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -206,11 +190,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
     public boolean deleteRuta(int cod_ruta) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -230,11 +210,7 @@ public class RutaDaoImpl extends Conexion implements RutaDao {
 
         LinkedList<Object> datosRuta = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }

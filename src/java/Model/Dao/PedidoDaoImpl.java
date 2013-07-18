@@ -34,11 +34,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
             int cod_ruta) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -76,11 +72,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
 
         LinkedList<Object> datosPedido = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -126,11 +118,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
     public Object selectAllPedido() throws SQLException, NamingException {
         LinkedList<Object> pedidos = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -183,11 +171,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
             Date fecha_entrega_ped,
             Date fecha_solicitud_ped) throws SQLException, NamingException {
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
@@ -229,11 +213,7 @@ public class PedidoDaoImpl extends Conexion implements PedidoDao {
     public boolean deletePedido(int cod_ped) throws SQLException, NamingException {
 
         boolean transaccionCorrecta = false;
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }

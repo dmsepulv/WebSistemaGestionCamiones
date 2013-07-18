@@ -12,7 +12,6 @@ import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-import javax.sql.DataSource;
 
 /**
  *
@@ -22,8 +21,6 @@ import javax.sql.DataSource;
 @SessionScoped
 public class LoginController implements Serializable {
 
-    @Resource(name = "sgc_connection")
-    private DataSource sgc_connection;
     private @Inject UsuarioService usuarioService;
     private String rut;
     private String nombre;

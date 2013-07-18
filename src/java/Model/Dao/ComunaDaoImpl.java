@@ -24,11 +24,7 @@ public class ComunaDaoImpl extends Conexion implements ComunaDao {
     public Object selectAllComuna() throws SQLException, NamingException {
         LinkedList<Object> comuna = null;
 
-        DataSource sgc_connection = getSgc_connection();
-        if (sgc_connection == null) {
-            throw new SQLException("No data source");
-        }
-        Connection conn = sgc_connection.getConnection();
+        Connection conn = getConnection();
         if (conn == null) {
             throw new SQLException("No connection");
         }
