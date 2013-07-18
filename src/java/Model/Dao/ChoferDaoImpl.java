@@ -185,13 +185,13 @@ public class ChoferDaoImpl extends Conexion implements ChoferDao {
         }
 
         StringBuilder stb = new StringBuilder();
-        stb.append("UPDATE \"CAMION\" ");
+        stb.append("UPDATE \"CHOFER\" ");
         stb.append("SET     nombre_cho = ? , ");
         stb.append("        apaterno_cho = ? , ");
         stb.append("        amaterno_cho = ? , ");
-        stb.append("        fnac_cho = ?  ");
-        stb.append("        experiencia_cho = ?  ");
-        stb.append("        tipo_licencia_cho = ?  ");
+        stb.append("        fnac_cho = ? , ");
+        stb.append("        experiencia_cho = ? , ");
+        stb.append("        tipo_licencia_cho = ? , ");
         stb.append("        expir_licencia_cho = ?  ");
         stb.append("WHERE   rut_cho = ? ;  ");
 

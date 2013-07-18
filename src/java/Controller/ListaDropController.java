@@ -57,12 +57,11 @@ public class ListaDropController {
         lista.add(new ElementoLista("MANTENCION", 3));
         return lista;
     }
-
+    
     public ArrayList<ElementoLista> cargaListaEstadoUsuario() {
         lista.clear();
-        lista.add(new ElementoLista("TODOS", 1));
-        lista.add(new ElementoLista("ACTIVO", 2));
-        lista.add(new ElementoLista("NO ACTIVO", 3));
+        lista.add(new ElementoLista("ACTIVO", 1));
+        lista.add(new ElementoLista("NO ACTIVO", 2));
         return lista;
     }
     

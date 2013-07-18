@@ -162,6 +162,11 @@ public class ChoferController {
         tipo_licencia_cho = c.getTipoLicenciaCho();
         expir_licencia_cho = c.getExpirLicenciaCho();
 
-        return c!=null ? "encontrado" : "no_encontrado";
+        return c != null ? "encontrado" : "no_encontrado";
+    }
+
+    @Override
+    public String toString() {
+        return apaterno_cho + " " + amaterno_cho + " " + nombre_cho;
     }
 }

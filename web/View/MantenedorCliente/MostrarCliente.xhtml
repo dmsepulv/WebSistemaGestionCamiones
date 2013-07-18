@@ -14,14 +14,14 @@
                         <br/>
                         <br/>
                     </center>
-                    <div class="filtro">
+                    <!--div class="filtro">
                         <h:outputLabel value="Filtro: "/>
                         <h:selectOneMenu value="#{camionController.estado_cam}">
                             <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
                                            itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                         </h:selectOneMenu>
                     </div>    
-                    <br/>
+                    <br/-->
                     <center>
                         <h:dataTable value="#{cliente.obtenerCliente()}" 
                                      var="client"
@@ -31,7 +31,7 @@
 
                             <h:column>
                                 <f:facet name="header">Rut Cliente</f:facet>
-                                <h:commandLink action="#{cliente.seleccionarCliente(cliente)}" value="#{client.codCli}"/>
+                                <h:commandLink action="#{cliente.seleccionarCliente(client)}" value="#{client.codCli}"/>
                             </h:column>
 
                             <h:column>

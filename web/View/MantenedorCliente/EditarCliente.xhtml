@@ -10,8 +10,10 @@
         <f:view>
             <h:form>
                 <p:panel>
-                    <h3><h:outputText> ACTUALIZAR CLIENTE</h:outputText>> </h3>
                     <center>
+                        <h:outputLabel value="EDITAR CLIENTE" styleClass="tittleContent" /> 
+                        <br/>
+                        <br/>
                         <table class="order-table">
                             <tr>
                                 <td class="cabecera"><h:outputText value="Rut Cliente"/></td>
@@ -28,7 +30,7 @@
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                                <td class="dato"><h:inputText value="#{cliente.amaterno_cli}"/></td>
+                                <td class="dato"><p:inputText value="#{cliente.amaterno_cli}"/></td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Telefono"/></td>
@@ -43,10 +45,9 @@
                                 <td class="dato"><p:inputText value="#{cliente.direccion_cli}"/></td>
                             </tr>
 
-
                             <tr>
                                 <td class="cabecera"><h:outputText value="Comuna"/></td>
-                                <td class="dato"><p:selectOneMenu value="#{cliente.cod_com}">
+                                <td class="dato"><p:selectOneMenu value="#{cliente.cod_com}" style="width: 97.5%">
                                         <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                                     </p:selectOneMenu></td>

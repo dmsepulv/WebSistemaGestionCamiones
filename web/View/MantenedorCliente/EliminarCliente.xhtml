@@ -11,9 +11,10 @@
             <h:form>
                 <p:panel>
                     <center>
-                        <h3>
-                            <label> Esta Seguro que desea borrar el cliente con rut : </label>
-                        </h3>
+                        <h:outputLabel value="ELIMINAR CLIENTE" styleClass="tittleContent" /> 
+                        <br/>
+                        <br/>
+                        <h3><label> Esta Seguro que desea borrar el cliente con rut : </label></h3>
                         <br/>
                         <h:outputText style="font-size: xx-large" value="#{cliente.cod_cli}"/>
                         <h:inputHidden value="#{cliente.cod_cli}"/>

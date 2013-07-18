@@ -10,8 +10,10 @@
         <f:view>
             <h:form>
                 <p:panel>
-                    <h3><label> ACTUALIZAR USUARIO</label> </h3>
                     <center>
+                        <h:outputLabel value="EDITAR USUARIO" styleClass="tittleContent" /> 
+                        <br/>
+                        <br/>
                         <table class="order-table">
                             <tr>
                                 <td class="cabecera"><h:outputText value="Rut Usuario"/></td>
@@ -51,7 +53,6 @@
                             <tr>
                                 <td class="cabecera"><h:outputText value="E-Mail"/></td>
                                 <td class="dato"><p:inputText  required="true" value="#{usuarioController.emailUsu}">
-                                        <f:validateLongRange minimum="1980"/>
                                     </p:inputText>
                                     <h:message for="textfieldANIOE" style="color:red"/>
                                 </td>
@@ -70,14 +71,14 @@
                             <tr>
                                 <td class="cabecera"><h:outputText value="Estado"/></td>
                                 <td class="dato">  
-                                     <p:selectOneMenu value="#{usuarioController.rolUsu}" style="width: 97.5%;">
+                                    <p:selectOneMenu value="#{usuarioController.estadoUsu}" style="width: 97.5%;">
                                         <f:selectItems value="#{listaDropController.cargaListaEstadoUsuario()}" var="ca"
                                                        itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                                     </p:selectOneMenu>
                                 </td>
                             </tr>
-
                         </table>
+                        <br/>
                         <p:commandButton action="#{usuarioController.updateUsuario()}" ajax="false" value="Guardar Cambios" id="Guardar"/>
                     </center>
                 </p:panel>

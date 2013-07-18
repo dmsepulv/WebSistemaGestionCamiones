@@ -11,7 +11,8 @@
             <h:form>
                 <p:panel>
                     <center>
-                        <h:outputLabel value="INGRESAR PEDIDO" styleClass="tittleContent" /> 
+                        <h:outputLabel value="PEDIDO N° #{pedidoController.cod_ped}" styleClass="tittleContent" />
+                        <h:inputHidden value="#{pedidoController.cod_ped}"/>
                         <br/>
                         <br/>
                     </center>
@@ -57,11 +58,7 @@
                                         </tr>
                                         <tr>
                                             <td class="cabecera"><h:outputText value="Comuna"/></td>
-                                            <td class="dato">
-                                                <p:selectOneMenu value="#{cliente.cod_com}" style="width: 97.5%;"> 
-                                                    <f:selectItems value="#{listaDropController.cargaListaCiudades()}" var="ca"
-                                                                   itemLabel="#{ca.label}" itemValue="#{ca.value}" />
-                                                </p:selectOneMenu></td>
+                                            <td class="dato"><h:outputText value="#{cliente.cod_com}"/></td>
                                         </tr>
                                     </table>
                                 </center>
@@ -107,6 +104,7 @@
                                     </p:column>
                                     <p:column styleClass="dato-pedido">
                                         <h:outputText  value="#{ruta.cod_com_ini}"/>
+                                        <h:inputHidden  value="#{ruta.cod_com_ini}"/>
                                     </p:column>
                                 </p:row>
                                 <p:row><p:column colspan="4"/></p:row>
@@ -122,9 +120,16 @@
                                     </p:column>
                                     <p:column styleClass="dato-pedido">
                                         <h:outputText  value="#{ruta.cod_com_dest}" />
+                                        <h:inputHidden value="#{ruta.cod_com_dest}"/>
                                     </p:column>
                                 </p:row>
                                 <p:row><p:column colspan="4"/></p:row>
+                                <!--p:row>
+                                    <p:column colspan="3"/>
+                                    <p:column colspan="1">
+                                        <p:commandButton action="verMapaRuta" ajax="false" value="Ver Mapa Ruta" />
+                                    </p:column>
+                                </p:row-->
                                 <p:row>
                                     <p:column styleClass="cabecera-pedido">
                                         <h:outputText value="Observación: "  />

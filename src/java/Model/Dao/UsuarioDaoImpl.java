@@ -199,13 +199,13 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
 
         try {
             StringBuilder stb = new StringBuilder();
-            stb.append("UPDATE \"USUARIO\"");
-            stb.append("SET ( nombre_usu = ? ,");
+            stb.append("UPDATE \"USUARIO\" ");
+            stb.append("SET  nombre_usu = ? ,");
             stb.append(" apaterno_usu = ? ,");
             stb.append(" amaterno_usu = ? ,");
             stb.append(" email_usu = ? ,");
             stb.append(" estado_usu = ? ,");
-            stb.append(" rol_usu = ? )");
+            stb.append(" rol_usu = ? ");
             stb.append(" WHERE  rut_usu = ? ;  ");
             PreparedStatement query = conn.prepareStatement(stb.toString());
 
@@ -217,7 +217,6 @@ public class UsuarioDaoImpl extends Conexion implements UsuarioDao {
             query.setString(6, rolUsu);
             query.setString(7, rutUsu);
             query.executeUpdate();
-            conn.commit();
             transaccionCorrecta = true;
         } finally {
             conn.close();

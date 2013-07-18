@@ -154,12 +154,13 @@ public class ClienteController {
                     telefono_cli,
                     mail_cli,
                     direccion_cli);
-
+            clean();
         } catch (SQLException ex) {
             Logger.getLogger(CamionController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NamingException ex) {
             Logger.getLogger(CamionController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return transaccionCorrecta ? "actualizado" : "noactualizado";
     }
 

@@ -104,8 +104,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
             stb.append("       \"COMUNA\".nombre_com ");
             stb.append("FROM   \"CLIENTE\"  ");
             stb.append("       NATURAL JOIN \"COMUNA\" ");
-            stb.append("WHERE  \"CLIENTE\".cod_cli = ?  ");
-            stb.append("       AND  \"CLIENTE\".estado_cli = 'ACTIVO' ; ");
+            stb.append("WHERE  \"CLIENTE\".cod_cli = ? ; ");
 
             PreparedStatement query = conn.prepareStatement(stb.toString());
             query.setString(1, cod);
@@ -204,13 +203,13 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
         try {
             StringBuilder stb = new StringBuilder();
             stb.append("UPDATE \"CLIENTE\"");
-            stb.append("SET ( cod_com = ? ,");
+            stb.append("SET cod_com = ? ,");
             stb.append(" nombre_cli = ? ,");
             stb.append(" apaterno_cli = ? ,");
             stb.append(" amaterno_cli = ? ,");
             stb.append(" telefono_cli = ? ,");
-            stb.append(" email_cli = ? ,");
-            stb.append(" direccion_cli = ? )");
+            stb.append(" mail_cli = ? ,");
+            stb.append(" direccion_cli = ? ");
             stb.append(" WHERE  cod_cli = ? ;  ");
             PreparedStatement query = conn.prepareStatement(stb.toString());
 
@@ -223,7 +222,6 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
             query.setString(7, direccionCli);
             query.setString(8, codCli);
             query.executeUpdate();
-            conn.commit();
             transaccionCorrecta = true;
         } finally {
             conn.close();
@@ -275,7 +273,7 @@ public class ClienteDaoImpl extends Conexion implements ClienteDao {
         try {
             StringBuilder stb = new StringBuilder();
             stb.append("UPDATE \"CLIENTE\" ");
-            stb.append("SET ( estado_cli = 'NO ACTIVO' ) ");
+            stb.append("SET  estado_cli = 'NO ACTIVO'  ");
             stb.append("WHERE  cod_cli = ? ;  ");
             PreparedStatement query = conn.prepareStatement(stb.toString());
             query.setString(1, codCli);

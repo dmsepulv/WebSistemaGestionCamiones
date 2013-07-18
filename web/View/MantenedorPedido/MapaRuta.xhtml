@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8"/>
+        <title>Directions service</title>
+        <link>
+            <style>
+                html, body, #map-canvas {
+                    margin: 0;
+                    padding: 0;
+                    height: 100%;
+                }
+            </style>
+        </link>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"/>
+        <h:outputScript library="js" name="map.js" />
+
+    </h:head>
+    <h:body >
+        <h:form prependId="false">
+        <div id="panel" style="width: 100%;float: left">
+            <b>Start: </b>
+            <select id="start" onchange="calcRoute();">
+                <option value="Chillán, Chile">Chillán</option>
+            </select>
+            <b>End: </b>
+            <select id="end" onchange="calcRoute();">
+                <option value="Chillán, Chile">Chillán</option>
+                <option value="Chillán, Chile">Chillán</option>
+            </select>
+        </div>
+
+        <div id="directions-panel" style="width: 45%; height: 100%; float: left; overflow: visible"></div>
+        <div id="map-canvas" style="width: 45%; height: 100%; float: left; overflow: visible"></div>
+        </h:form>
+    </h:body>
+</html>
+

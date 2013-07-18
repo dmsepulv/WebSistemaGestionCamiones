@@ -10,18 +10,18 @@
             <h:form>  
                 <p:panel>
                     <center>
-                        <h:outputLabel value="Listado de Viajes" styleClass="tittleContent"/>
+                        <h:outputLabel value="Listado de Camiones" styleClass="tittleContent"/>
                         <br/>
                         <br/>
                     </center>
-                    <div class="filtro">
+                    <!--div class="filtro">
                         <h:outputLabel value="Filtro: "/>
                         <h:selectOneMenu value="#{camionController.estado_cam}">
                             <f:selectItems value="#{listaDropController.cargaListaEstadosFiltroCamion()}" var="ca"
                                            itemLabel="#{ca.label}" itemValue="#{ca.value}" />
                         </h:selectOneMenu>
                     </div>    
-                    <br/>
+                    <br/-->
                     <center>
                         <h:dataTable value="#{camionController.obtenerCamiones()}" 
                                      var="c"

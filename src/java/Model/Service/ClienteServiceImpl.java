@@ -137,6 +137,6 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public boolean eliminarCliente(String cod_cli) throws SQLException, NamingException {
 
-        return clienteDao.unableCliente(cod_cli);
+        return clienteDao.deleteCliente(cod_cli);
     }
 }

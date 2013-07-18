@@ -20,19 +20,9 @@
 
                             </tr>
                             <tr>
-                                <td class="cabecera"><h:outputText value="Nombre"/></td>
+                                <td class="cabecera"><h:outputText value="Nombre Completo"/></td>
                                 <td class="dato"><h:outputText value="#{cliente.nombre_cli}"/>
-                                    <h:inputHidden value="#{cliente.nombre_cli}"/></td>
-                            </tr>
-                            <tr>
-                                <td class="cabecera"><h:outputText value="Apellido Paterno"/></td>
-                                <td class="dato"><h:outputText value="#{cliente.apaterno_cli}"/>
-                                    <h:inputHidden value="#{cliente.apaterno_cli}"/></td>
-                            </tr>
-                            <tr>
-                                <td class="cabecera"><h:outputText value="Apellido Materno"/></td>
-                                <td class="dato"><h:outputText value="#{cliente.amaterno_cli}"/>
-                                    <h:inputHidden value="#{cliente.amaterno_cli}"/></td>
+                                    <h:inputHidden value="#{cliente.toString()}"/></td>
                             </tr>
                             <tr>
                                 <td class="cabecera"><h:outputText value="Telefono"/></td>

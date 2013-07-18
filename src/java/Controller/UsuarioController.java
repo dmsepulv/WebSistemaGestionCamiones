@@ -104,6 +104,9 @@ public class UsuarioController {
     public String saveUsuario() {
         boolean transaccionCorrecta = false;
         try {
+            rolUsu = rolUsu.charAt(0) == '1' ? "ADMINISTRADOR" : rolUsu;
+            rolUsu = rolUsu.charAt(0) == '2' ? "SECRETARIA" : rolUsu;
+            rolUsu = rolUsu.charAt(0) == '3' ? "CHOFER" : rolUsu;
             transaccionCorrecta = usuarioService.guardarUsuario(rutUsu,
                     passwordUsu,
                     nombreUsu,
@@ -123,7 +126,13 @@ public class UsuarioController {
 
     public String updateUsuario() {
         boolean transaccionCorrecta = false;
+        
         try {
+            rolUsu = rolUsu.charAt(0) == '1' ? "ADMINISTRADOR" : rolUsu;
+            rolUsu = rolUsu.charAt(0) == '2' ? "SECRETARIA" : rolUsu;
+            rolUsu = rolUsu.charAt(0) == '3' ? "CHOFER" : rolUsu;
+            estadoUsu = estadoUsu.charAt(0) == '1' ? "ACTIVO" : estadoUsu;
+            estadoUsu = estadoUsu.charAt(0) == '2' ? "NO ACTIVO" : estadoUsu;
             transaccionCorrecta = usuarioService.actualizarUsuario(rutUsu,
                     passwordUsu,
                     nombreUsu,
@@ -150,10 +159,10 @@ public class UsuarioController {
     }
 
     public String seleccionarUsuario(Usuario usuario) {
-        Usuario c = usuarioService.seleccionarUsuario(usuario.getRutUsu());
+            Usuario c = usuarioService.seleccionarUsuario(usuario.getRutUsu());
         if (c != null) {
-            rutUsu =
-                    passwordUsu = c.getRutUsu();
+            rutUsu = c.getRutUsu();
+            passwordUsu = c.getRutUsu();
             nombreUsu = c.getNombreUsu();
             apaternoUsu = c.getApaternoUsu();
             amaternoUsu = c.getAmaternoUsu();
@@ -181,6 +190,10 @@ public class UsuarioController {
                 }
             }
         }
+    }
+    
+    public void cleanUsuario(){
+        estadoUsu=null;
     }
 
     @Override

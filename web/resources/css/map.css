@@ -1,0 +1,26 @@
+/* 
+    Document   : map
+    Created on : 17-07-2013, 04:53:35 AM
+    Author     : darwin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+#map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 45%; 
+    height: 100%; 
+    float: left
+}
+
+#directions-panel{
+    width: 45%; 
+    height: 100%; 
+    float: left;
+}
+
